@@ -2,9 +2,25 @@
  * 
  */
 describe("pow", function() {
+	
+  before(function() { 
+	//  alert("Начало тестов"); 
+  });
+  
+  after(function() { 
+	//   alert("Конец тестов"); 
+  });
+
+  beforeEach(function() { 
+	//   alert("Вход в тест"); 
+  });
+  
+  afterEach(function() { 
+	 //  alert("Выход из теста"); 
+  });
 
   it("возводит в 2 в 3-ю степень, результат 8", function() {
-    assert.equal(pow(2, 3), 8);
+	  	assert.equal(pow(2, 3), 8);
   });
   
   it("возводит в 2 в 4-ю степень, результат 16", function() {
