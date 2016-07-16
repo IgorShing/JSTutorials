@@ -49,4 +49,12 @@ describe("pow", function() {
 	  for (var x = 1; x <= 5; x++) {
 	    makeTest(x);
 	  }
+	  
+  it("при возведении в отрицательную степень результат NaN", function() {
+	assert(isNaN(pow(2, -1)));
+  });
+
+  it("при возведении в дробную степень результат NaN", function() {
+	assert(isNaN(pow(2, 1.5)));
+  });
 });
