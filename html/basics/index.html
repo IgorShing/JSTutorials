@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="../../css/styles.css">
+	<script src = "../../libs/jquery2_2_3.js"></script>
+	<script src = "../../controller/controller.js"></script>
+
+</head>
+<body>
+
+	<div id="demoButton"></div>
+	
+	<script>
+	
+		var eventController = new EventController();
+		var demo;
+	
+		$("#demoButton" ).click(function() {
+			// TODO Get the demo from a factory
+			
+			eventController.demonstrate(demo);
+			});
+	</script>
+
+</body>
+</html>

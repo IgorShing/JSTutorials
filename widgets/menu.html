@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="widgetStyles.css">
+	
+	<script src = "../libs/jquery2_2_3.js"></script>
+	<script src = "../libs/underscore_1_8_3.js"></script>
+
+</head>
+<body>
+	
+	<!-- Create your template -->
+<script type="foo/bar" id='menuList'>
+	<!-- This is our main container for our widget.
+	     The tabindex attribute is what allows the user to focus the widget. 
+	     We'll see later that it's better to set it through JavaScript. -->
+	<div class="select" tabindex="0">
+	  
+	  <!-- This container will be used to display the current value of the widget -->
+	  <span class="value">Cherry</span>
+	  
+	  <!-- This container will contain all the option available for our widget.
+	       Because it's a list, it makes sense to use the ul element. -->
+	  <ul class="optList">
+	  
+	  <!-- Each option only contain the value to be displayed, we'll see later
+	       how to handle the real value that will be send with the form data -->
+
+	  <%
+        // repeat items 
+        _.each(items, function(item, key, list){
+          // create variables
+//           var f = item.name.split("").shift().toLowerCase();
+      %>
+	    <li class="option"><%- item.name %></li>
+      <%
+        });
+      %>
+	  </ul>
+	
+	</div>
+</script>
+	
+<!-- Create your target -->
+
+<div id="target"></div>
+
+<script type="text/javascript">
+  var items = [
+    {name:"Cherry"},
+    {name:"Lemon"},
+    {name:"Banana"},
+    {name:"Strawberry"},
+    {name:"Apple"}
+  ];
+  
+  var template = $("#menuList").html();
+  $("#target").html(_.template(template,{items:items}));
+</script>
+
+
+</body>
+</html>
+	
+
