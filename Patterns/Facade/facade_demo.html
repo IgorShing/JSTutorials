@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Facade Demo</title>
+<!-- 	<script src = "shape.js" ></script>
+	<script src = "rectangle.js" ></script>
+	<script src = "square.js" ></script>
+	<script src = "circle.js" ></script>
+	<script src = "shapeMaker.js" ></script> -->
+
+	
+</head>
+
+<body>
+
+	<script>
+	
+		function addScript(src){
+		  var script = document.createElement('script');
+		  script.src = src;
+		  script.async = false; // чтобы гарантировать порядок
+		  document.head.appendChild(script);
+		}
+	
+		addScript("shape.js");
+		addScript("rectangle.js");
+		addScript("square.js");
+		addScript("circle.js");
+		addScript("shapeMaker.js");
+		
+		addScript("facadeDemo.js");
+		
+	</script>
+
+</body>
+</html>
