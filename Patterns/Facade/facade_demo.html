@@ -4,33 +4,56 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Facade Demo</title>
-<!-- 	<script src = "shape.js" ></script>
+
+	<link rel="stylesheet" href="../../css/styles.css">
+	
+	<!-- The library to work with svg -->
+	<script src="https://d3js.org/d3.v4.min.js"></script>
+	
+	<script src = "../../libs/jquery2_2_3.js"></script>
+ 	<script src = "shape.js" ></script>
 	<script src = "rectangle.js" ></script>
 	<script src = "square.js" ></script>
 	<script src = "circle.js" ></script>
-	<script src = "shapeMaker.js" ></script> -->
+	<script src = "shapeMaker.js" ></script>
+	<script src = "facadeDemo.js" ></script>
 
 	
 </head>
 
 <body>
 
+	<svg id="canvas" xmlns="http://www.w3.org/2000/svg" height="100" width="100"></svg>
+
+	<div id="demoButton">Facade</div>
+	<canvas id="myCanvas" width="300" height="300"></canvas>
+	
+	
+
 	<script>
 	
-		function addScript(src){
-		  var script = document.createElement('script');
-		  script.src = src;
-		  script.async = false; // чтобы гарантировать порядок
-		  document.head.appendChild(script);
-		}
+	window.onload = function(){
+
 	
-		addScript("shape.js");
-		addScript("rectangle.js");
-		addScript("square.js");
-		addScript("circle.js");
-		addScript("shapeMaker.js");
-		
-		addScript("facadeDemo.js");
+		$("#demoButton" ).click(function() {
+			facadeDemo();
+			
+			var circle = d3.select("#canvas").append("circle")
+		    .attr("r", "10")
+		    .attr("cx", "50")
+		    .attr("cy", "50")
+		    
+		    .attr("style", "fill:red; stroke:black; stroke-width:2");
+						
+			
+			var c = document.getElementById("myCanvas");
+			alert(c);
+			var ctx = c.getContext("2d");
+			ctx.beginPath();
+			ctx.arc(100,75,50,0,2*Math.PI);
+			ctx.stroke();
+		});
+	};
 		
 	</script>
 

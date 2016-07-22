@@ -4,19 +4,24 @@
 function ShapeMaker(){
 	alert("Shape maker");
 	
-	var circle = new Circle();
-	var rectangle = new Rectangle();
-	var square = new Square();
+	this.circle = new Circle("Circle");
+	
+	this.circle.setX(50);
+	this.circle.setY(50);
+	this.circle.setRadius(10);
+	
+	this.rectangle = new Rectangle("Rectangle");
+	this.square = new Square("Square");
 }
 
 ShapeMaker.prototype.drawCircle = function(){
-	circle.draw();
+	this.circle.draw();
 }
 
 ShapeMaker.prototype.drawRectangle = function(){
-	rectangle.draw();
+	this.rectangle.draw();
 }
 
 ShapeMaker.prototype.drawSquare = function(){
-	square.draw();
+	this.square.draw();
 }
