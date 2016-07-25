@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="../css/styles.css">
+	<script src = "../libs/jquery2_2_3.js"></script>
+	<script src = "machine.js"></script>
+	<script src = "coffeeMachine.js"></script>
+	<script src = "fridge.js"></script>
+
+</head>
+<body>
+
+	 <script>
+	 	var machine = new Machine();
+	 	machine.enable();
+	 	alert(machine.getStatus());
+	 	
+	 	// Create a fridge
+	 	var fridge = new Fridge();
+	 	
+	 	fridge.addFood("Milk");
+	 	fridge.addFood("Cheese");
+	 	fridge.addFood("Eggs");
+	 	
+	 	fridge.showContent();
+	 	
+	 	
+	 	
+	 </script>>
+
+</body>
+</html>
