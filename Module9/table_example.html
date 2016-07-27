@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+	<!-- библиотека LoDash -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.3.0/lodash.js"></script>
+	<link rel="stylesheet" href="stylesModule9.css">
+	
+</head>
+<body>
+
+<script type="text/template" id="table-template">
+<table id="result-table">
+	<tr>
+		<td> Name </td>
+		<td> Age </td>
+	</tr>
+	<% items.forEach(function(item) { %>
+	<tr>
+		<td> <%- item.name %> </td>
+		<td> <%- item.age %> </td>
+		<% }); %>
+	</tr>
+</table>
+</script>
+
+<script>
+
+ var items = [
+              {name: "Vasia",
+               age: 10},
+              {name: "Peter",
+               age: 15},
+              {name: "Eugine",
+               age: 20},
+              {name: "Mary",
+               age: 25},
+              {name: "Daria",
+               age: 30}];
+ 
+ template = _.template(document.getElementById('table-template').innerHTML);
+ 
+ // Add to the document
+ document.write(template(items));
+ 
+</script>
+
+</body>
+</html>
