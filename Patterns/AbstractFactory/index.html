@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	
+	<link rel="stylesheet" href="styles.css">
+	
+	<script src = "shape.js"></script>
+	<script src = "circle.js"></script>
+	<script src = "abstractFactory.js"></script>
+	<script src = "shapeFactory.js"></script>
+	<script src = "factoryProducer.js"></script>
+
+</head>
+
+<body>
+	 <canvas id="myCanvas" width = "800px" height = "800px"></canvas> 
+	
+	<script>
+		
+/* 		var circlesDataJson = '{"circles": ['+
+		                                    +'{"centerX" : "10", "centerY" : "10", "radius":"10", "color":"red"},'
+		                                    +'{"centerX" : "200", "centerY" : "200", "radius":"10", "color":"blue"}'
+		                                    +']}'; */
+		                                    
+   		var circlesDataJson = '{"circles": [{"centerX" : "100", "centerY" : "100", "radius":"10", "color":"red"},{"centerX" : "200", "centerY" : "200", "radius":"10", "color":"blue"}]}';
+		                                    
+		var json = JSON.parse(circlesDataJson);
+		
+			
+		var factoryType = FACTORY_TYPE.SHAPE_FACTORY;
+		var shapeType = SHAPE_TYPE.CIRCLE;
+		
+		var factoryProducer = new FactoryProducer(); 
+		
+		var factory = factoryProducer.getFactory(factoryType);
+		
+		for (var i = 0; i < Object.keys(json["circles"]).length; i++){
+			var circle = factory.getShape(shapeType);
+			var c = json["circles"][i];
+			
+			circle.initialize(c.centerX, c.centerY , c.radius, c.color);		
+			circle.draw("myCanvas");
+		}
+		
+	</script>
+	
+</body>
+</html>
