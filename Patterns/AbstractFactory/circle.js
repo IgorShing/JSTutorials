@@ -2,7 +2,7 @@
  * 
  */
 function Circle(){
-	
+// Initialize parent's fields.
 	Shape.apply(this, arguments);
 	
 	this.centerX;
@@ -18,6 +18,12 @@ function Circle(centerX, centerY, radius, color){
 	Shape.apply(this, arguments);
 	this.initialize(centerX, centerY, radius, color);
 }
+
+//Create inheritance
+Circle.prototype = Object.create(Shape.prototype);
+ 
+// Save the constructor
+Circle.prototype.constructor = Circle;
 
 Circle.prototype.setDefaultValues = function(){
 	this.centerX = 0;

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+		'use strict';
+	
+		let map = new Map();
+	
+		map.set('1', 'str1');   // ключ-строка
+		map.set(1, 'num1');     // число
+		map.set(true, 'bool1'); // булевое значение
+	
+		// в обычном объекте это было бы одно и то же,
+		// map сохраняет тип ключа
+		alert( map.get(1)   ); // 'num1'
+		alert( map.get('1') ); // 'str1'
+	
+		alert( map.size ); // 3
+		
+		let map2 = new Map([
+		                   ['circle', 'This is a circle'],
+		                   ['rectangle', 'This is a rectangle'],
+		                   ['triangle', 'This is a triangle']
+		                 ]);
+		
+		alert(map2.get('rectangle'));
+		
+	</script>
+</body>
+</html>

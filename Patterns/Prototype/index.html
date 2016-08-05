@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	
+	<link rel="stylesheet" href="styles.css">
+	
+	<script src = "shape.js"></script>
+	<script src = "circle.js"></script>
+	<script src = "rectangle.js"></script>
+	<script src = "triangle.js"></script>
+	<script src = "shapecache.js"></script>
+
+</head>
+
+<body>
+	<canvas id="myCanvas" width = "800px" height = "800px"></canvas> 
+	
+	<script>
+		var shapeCache = new ShapeCache();
+		var circle = shapeCache.getShape("circle");
+		circle.draw();
+		
+	</script>
+	
+</body>
+</html>
