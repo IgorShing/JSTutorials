@@ -2,15 +2,15 @@
  * 
  */
 
-function Shape(){
+function View(){
 	this.name;
 }
 
-Shape.prototype.getName = function(){
+View.prototype.getName = function(){
 	return this.name;
 }
 
-Shape.prototype.setName = function(name){
+View.prototype.setName = function(name){
 	
 	if (name != null || name != undefined){
 		this.name = name;

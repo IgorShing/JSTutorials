@@ -4,48 +4,64 @@
 	<meta charset="UTF-8">
 	<title>Insert title here</title>
 	
-	<link rel="stylesheet" href="styles.css">
+	<link rel="stylesheet" href="view/css/styles.css">
+
+	<script src = "../libs/jquery2_2_3.js"></script>
+
+	<script src = "model/Edge.js"></script>
+	<script src = "model/Node.js"></script>
+	<script src = "model/Graph.js"></script>
+
 	
-	<script src = "shape.js"></script>
-	<script src = "circle.js"></script>
-	<script src = "abstractFactory.js"></script>
-	<script src = "shapeFactory.js"></script>
-	<script src = "factoryProducer.js"></script>
+	<script src = "view/widgets/View.js"></script>
+	<script src = "view/widgets/CircleView.js"></script>
+	<script src = "view/widgets/EdgeView.js"></script>
+	<script src = "view/widgets/GraphView.js"></script>
+	<script src = "view/widgets/WidgetFactory.js"></script>
+	<script src = "dao/DataProvider.js"></script>
+	<script src = "controller/MainController.js"></script>
+
 
 </head>
 
 <body>
-	 <canvas id="myCanvas" width = "800px" height = "800px"></canvas> 
-	
-	<script>
-		
-/* 		var circlesDataJson = '{"circles": ['+
-		                                    +'{"centerX" : "10", "centerY" : "10", "radius":"10", "color":"red"},'
-		                                    +'{"centerX" : "200", "centerY" : "200", "radius":"10", "color":"blue"}'
-		                                    +']}'; */
-		                                    
-   		var circlesDataJson = '{"circles": [{"centerX" : "100", "centerY" : "100", "radius":"10", "color":"red"},'+
-   		                                   '{"centerX" : "200", "centerY" : "200", "radius":"10", "color":"blue"},'+
-   		                                   '{"centerX" : "300", "centerY" : "200", "radius":"10", "color":"green"}]}';
-		                                    
-		var json = JSON.parse(circlesDataJson);
-		
-		var factoryType = FACTORY_TYPE.SHAPE_FACTORY;
-		var shapeType = SHAPE_TYPE.CIRCLE;
-		
-		var factoryProducer = new FactoryProducer(); 
-		
-		var factory = factoryProducer.getFactory(factoryType);
-		
-		for (var i = 0; i < Object.keys(json["circles"]).length; i++){
-			var circle = factory.getShape(shapeType);
-			var c = json["circles"][i];
-			
-			circle.initialize(c.centerX, c.centerY , c.radius, c.color);		
-			circle.draw("myCanvas");
-		}
-		
-	</script>
+
+	<div >
+		<div class = "controlPanel">
+			<div class="dropdown">
+				<button class="dropbtn">Load data</button>
+				<div class="dropdown-content">
+					<a id= "link1" href="#">Data set 1</a>
+					<a id= "link2" href="#">Data set 2</a>
+					<a id= "link3" href="#">Data set 3</a>
+				</div>
+			</div>
+		</div>
+		<div class = "diagram">
+			<canvas id="myCanvas" width = "800px" height = "800px"></canvas>
+		</div>
+	</div>
+
+<script>
+
+	var mainController = new MainController();
+	var canvasId = "myCanvas";
+	var dataSetType = DATA_SET_TYPE.DATA_SET_1;
+
+	mainController.buildDiagram(canvasId, dataSetType);
+
+	$("#link1").click(function() {
+		mainController.buildDiagram(canvasId, DATA_SET_TYPE.DATA_SET_1);
+	});
+
+	$("#link2").click(function() {
+		mainController.buildDiagram(canvasId, DATA_SET_TYPE.DATA_SET_2);
+	});
+
+	$("#link3").click(function() {
+		// mainController.buildDiagram(canvasId, DATA_SET_TYPE.DATA_SET_3);
+	});
+</script>
 	
 </body>
 </html>

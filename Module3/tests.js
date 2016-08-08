@@ -57,4 +57,17 @@ describe("pow", function() {
   it("при возведении в дробную степень результат NaN", function() {
 	assert(isNaN(pow(2, 1.5)));
   });
+  
 });
+
+// Tests the fibonachi formula
+describe("fibonachi", function() {
+	
+/*	  it("fibonachi, генерирует число последовательности Фибоначи, результат 5527939700884757", function() {
+		    assert.equal(fibonachi(77), 5527939700884757);
+	  });*/
+	  
+	  it("fib, генерирует число последовательности Фибоначи, результат 5527939700884757", function() {
+		    assert.equal(fib(77), 5527939700884757);
+	  });
+	});
