@@ -27,6 +27,7 @@
 <body>
 
 	<div >
+	
 		<div class = "controlPanel">
 			<div class="dropdown">
 				<button class="dropbtn">Load data</button>
@@ -37,31 +38,72 @@
 				</div>
 			</div>
 		</div>
+		
 		<div class = "diagram">
 			<canvas id="myCanvas" width = "800px" height = "800px"></canvas>
 		</div>
+		
+		<canvas id="canvas2" width = "800px" height = "800px"></canvas>
 	</div>
 
-<script>
-
-	var mainController = new MainController();
-	var canvasId = "myCanvas";
-	var dataSetType = DATA_SET_TYPE.DATA_SET_1;
-
-	mainController.buildDiagram(canvasId, dataSetType);
-
-	$("#link1").click(function() {
-		mainController.buildDiagram(canvasId, DATA_SET_TYPE.DATA_SET_1);
-	});
-
-	$("#link2").click(function() {
-		mainController.buildDiagram(canvasId, DATA_SET_TYPE.DATA_SET_2);
-	});
-
-	$("#link3").click(function() {
-		// mainController.buildDiagram(canvasId, DATA_SET_TYPE.DATA_SET_3);
-	});
-</script>
+	<script>
 	
+		var mainController = new MainController();
+		var canvasId = "myCanvas";
+		var dataSetType = DATA_SET_TYPE.DATA_SET_1;
+	
+		mainController.buildDiagram(canvasId, dataSetType);
+	
+		$("#link1").click(function() {
+			mainController.buildDiagram(canvasId, DATA_SET_TYPE.DATA_SET_1);
+		});
+	
+		$("#link2").click(function() {
+			mainController.buildDiagram(canvasId, DATA_SET_TYPE.DATA_SET_2);
+		});
+	
+		$("#link3").click(function() {
+			// mainController.buildDiagram(canvasId, DATA_SET_TYPE.DATA_SET_3);
+		});
+		
+		
+		// Get mouse position
+	      function writeMessage(canvas, message) {
+	          var context = canvas.getContext('2d');
+	          context.clearRect(0, 0, canvas.width, canvas.height);
+	          context.font = '12pt Calibri';
+	          context.fillStyle = 'black';
+	          context.fillText(message, 10, 55, 500);
+	        }
+	      
+	      function getMousePos(canvas, evt) {
+	          var rect = canvas.getBoundingClientRect();
+	          return {
+	            x: evt.clientX - rect.left,
+	            y: evt.clientY - rect.top
+	          };
+	        }
+	        var canvas = document.getElementById('canvas2');
+	        var context = canvas.getContext('2d');
+
+	        canvas.addEventListener('mousemove', function(evt) {
+	          var mousePos = getMousePos(canvas, evt);
+	          var message = 'Mouse position: x = ' + mousePos.x + ', y = ' + mousePos.y + '';
+	          
+	          writeMessage(canvas, message);
+	        }, false);
+	        
+	</script>
+
+	<script>
+				
+		function handler() {
+		  alert('Create a circle!');
+		}
+		
+		myCanvas.addEventListener("click", handler) // Назначение обработчика
+	
+	</script>
+
 </body>
 </html>
