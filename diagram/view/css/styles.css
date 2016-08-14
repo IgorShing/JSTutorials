@@ -3,8 +3,13 @@ canvas {
 }
 
 .diagram{
-    display: block;
+  /*  display: block; */
+}
 
+.mainMenu{
+    width: 800px;
+    height: 100px;
+    background-color: #dce6f4;
 }
 
 .controlPanel{

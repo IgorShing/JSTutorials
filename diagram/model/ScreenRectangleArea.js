@@ -17,6 +17,10 @@
  * @constructor
  */
 function ScreenRectangleArea(x, y, width, height){
+
+    // Initialize parent's fields.
+    RectangleArea.apply(this, arguments);
+
     this.cornerTopLeft = new Point2D(x, y);
     this.cornerTopRight = new Point2D(x + width, y);
     this.cornerBottomLeft = new Point2D(x, y + height);
@@ -24,6 +28,12 @@ function ScreenRectangleArea(x, y, width, height){
     this.width = width;
     this.height = height;
 }
+
+//Create inheritance
+ScreenRectangleArea.prototype = Object.create(RectangleArea.prototype);
+
+// Save the constructor
+ScreenRectangleArea.prototype.constructor = ScreenRectangleArea;
 
 /**
  * Sets the size of the area.

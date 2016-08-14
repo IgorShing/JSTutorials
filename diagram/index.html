@@ -5,6 +5,7 @@
 	<title>Insert title here</title>
 	
 	<link rel="stylesheet" href="view/css/styles.css">
+	<link rel="stylesheet" href="view/css/menuStyles.css">
 
 	<script src = "../libs/jquery2_2_3.js"></script>
 
@@ -21,47 +22,144 @@
 	<script src = "dao/DataProvider.js"></script>
 	<script src = "controller/MainController.js"></script>
 
-
 </head>
 
 <body>
 
-	<div >
-		<div class = "controlPanel">
-			<div class="dropdown">
-				<button class="dropbtn">Load data</button>
-				<div class="dropdown-content">
-					<a id= "link1" href="#">Data set 1</a>
-					<a id= "link2" href="#">Data set 2</a>
-					<a id= "link3" href="#">Data set 3</a>
+	<div align="center">
+
+	<!-- ----------------- MENU ---------------------    -->
+		<div class="tabs" align="left">
+			<ul class="tab-links">
+				<li class="active"><a href="#tab1">Data</a></li>
+				<li><a href="#tab2">Instruments</a></li>
+				<li><a href="#tab3">Draw</a></li>
+				<li><a href="#tab4">Tab #4</a></li>
+			</ul>
+
+			<div class="tab-content">
+				<div id="tab1" class="tab active">
+
+					<div class = "controlPanel">
+						<div class="dropdown">
+							<button class="dropbtn">Load data</button>
+							<div class="dropdown-content">
+								<a id= "link1" href="#">Data set 1</a>
+								<a id= "link2" href="#">Data set 2</a>
+								<a id= "link3" href="#">Data set 3</a>
+							</div>
+						</div>
+					</div>
+
+					<p>Tab #1 content goes here!</p>
+					<p>Donec pulvinar neque sed semper lacinia. Curabitur lacinia ullamcorper nibh; quis imperdiet velit eleifend ac. Donec blandit mauris eget aliquet lacinia! Donec pulvinar massa interdum risus ornare mollis.</p>
+				</div>
+
+				<div id="tab2" class="tab">
+					<p>Tab #2 content goes here!</p>
+					<p>Donec pulvinar neque sed semper lacinia. Curabitur lacinia ullamcorper nibh; quis imperdiet velit eleifend ac. Donec blandit mauris eget aliquet lacinia! Donec pulvinar massa interdum risus ornare mollis. In hac habitasse platea dictumst. Ut euismod tempus hendrerit. Morbi ut adipiscing nisi. Etiam rutrum sodales gravida! Aliquam tellus orci, iaculis vel.</p>
+				</div>
+
+				<div id="tab3" class="tab">
+					<p>Tab #3 content goes here!</p>
+					<p>Donec pulvinar neque sed semper lacinia. Curabitur lacinia ullamcorper nibh; quis imperdiet velit eleifend ac. Donec blandit mauris eget aliquet lacinia! Donec pulvinar massa interdum ri.</p>
+				</div>
+
+				<div id="tab4" class="tab">
+					<p>Tab #4 content goes here!</p>
+					<p>Donec pulvinar neque sed semper lacinia. Curabitur lacinia ullamcorper nibh; quis imperdiet velit eleifend ac. Donec blandit mauris eget aliquet lacinia! Donec pulvinar massa interdum risus ornare mollis. In hac habitasse platea dictumst. Ut euismod tempus hendrerit. Morbi ut adipiscing nisi. Etiam rutrum sodales gravida! Aliquam tellus orci, iaculis vel.</p>
 				</div>
 			</div>
 		</div>
+
+		<!-- ------------------------       -->
+
+		<script>
+			jQuery(document).ready(function() {
+				jQuery('.tabs .tab-links a').on('click', function(e)  {
+					var currentAttrValue = jQuery(this).attr('href');
+
+					// Show/Hide Tabs
+					jQuery('.tabs ' + currentAttrValue).show().siblings().hide();
+
+					// Change/remove current tab to active
+					jQuery(this).parent('li').addClass('active').siblings().removeClass('active');
+
+					e.preventDefault();
+				});
+			});
+		</script>
+
+
+		
 		<div class = "diagram">
-			<canvas id="myCanvas" width = "800px" height = "800px"></canvas>
+			<canvas id="myCanvas" width = "800px" height = "600px"></canvas>
 		</div>
+
 	</div>
-
-<script>
-
-	var mainController = new MainController();
-	var canvasId = "myCanvas";
-	var dataSetType = DATA_SET_TYPE.DATA_SET_1;
-
-	mainController.buildDiagram(canvasId, dataSetType);
-
-	$("#link1").click(function() {
-		mainController.buildDiagram(canvasId, DATA_SET_TYPE.DATA_SET_1);
-	});
-
-	$("#link2").click(function() {
-		mainController.buildDiagram(canvasId, DATA_SET_TYPE.DATA_SET_2);
-	});
-
-	$("#link3").click(function() {
-		// mainController.buildDiagram(canvasId, DATA_SET_TYPE.DATA_SET_3);
-	});
-</script>
+	<script>
 	
+		var mainController = new MainController();
+		var canvasId = "myCanvas";
+		var dataSetType = DATA_SET_TYPE.DATA_SET_1;
+	
+		//mainController.buildDiagram(canvasId, dataSetType);
+	
+		$("#link1").click(function() {
+			mainController.buildDiagram(canvasId, DATA_SET_TYPE.DATA_SET_1);
+		});
+	
+		$("#link2").click(function() {
+			mainController.buildDiagram(canvasId, DATA_SET_TYPE.DATA_SET_2);
+		});
+	
+		$("#link3").click(function() {
+			// mainController.buildDiagram(canvasId, DATA_SET_TYPE.DATA_SET_3);
+		});
+		
+		
+		// Get mouse position
+	      function writeMessage(canvas, message) {
+
+	      	  var posX = 10;
+			  var posY = 700;
+
+	          var context = canvas.getContext('2d');
+	          context.clearRect(posX, posY, canvas.width, 50);
+	          context.font = '12pt Calibri';
+	          context.fillStyle = 'black';
+	          context.fillText(message, posX, posY);
+	        }
+	      
+	      function getMousePos(canvas, evt) {
+	          var rect = canvas.getBoundingClientRect();
+	          return {
+	            x: evt.clientX - rect.left,
+	            y: evt.clientY - rect.top
+	          };
+	        }
+
+	        var canvas = document.getElementById('myCanvas');
+	        var context = canvas.getContext('2d');
+
+	        canvas.addEventListener('mousemove', function(evt) {
+	          var mousePos = getMousePos(canvas, evt);
+	          var message = 'Mouse position: x = ' + mousePos.x + ', y = ' + mousePos.y + '';
+	          
+	          writeMessage(canvas, message);
+	        }, false);
+	        
+	</script>
+
+	<script>
+				
+		function handler() {
+		  alert('Create a circle!');
+		}
+		
+		myCanvas.addEventListener("click", handler) // Назначение обработчика
+	
+	</script>
+
 </body>
 </html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="../css/styles.css">
+	<!-- библиотека LoDash -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.3.0/lodash.js"></script>
+
+</head>
+<body>
+
+<!-- 	<div class="menu">
+	  <span class="title"><%-title%></span>
+	  <ul>
+	    <% items.forEach(function(item) { %>
+	    <li><%-item%></li>
+	    <% }); %>
+	  </ul>
+	</div> -->
+
+	<!-- шаблон для списка от 1 до count -->
+	<script type="text/template" id="list-template">
+		<ul>
+  			<% for (var i = 1; i <= count; i++) { %>
+  			<li><%= i %></li>
+  			<% } %>
+		</ul>
+	</script>
+
+	<script>
+  		var tmpl = _.template(document.getElementById('list-template').innerHTML);
+
+  		// ..а вот и результат
+  		var result = tmpl({count: 5});
+  		document.write( result );
+	</script>
+
+</body>
+</html>
