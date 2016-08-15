@@ -5,18 +5,26 @@
     <meta name="viewport" content="width=device-width">
     <title>QUnit Example</title>
     <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.0.1.css">
+
+    <!--<script src="https://code.jquery.com/qunit/qunit-2.0.1.js"></script>-->
+    <script src="../../libs/qunit_2_0_1.js"></script>
+
+    <script src = "../model/Point2D.js"></script>
+    <script src = "../model/RectangleArea.js"></script>
+    <script src = "../model/ScreenRectangleArea.js"></script>
+    <script src = "../model/CartesianRectangleArea.js"></script>
+    <script src = "../logic/CoordinateTransformer.js"></script>
+
 </head>
 <body>
 <div id="qunit"></div>
 <div id="qunit-fixture"></div>
-<!--<script src="https://code.jquery.com/qunit/qunit-2.0.1.js"></script>-->
-<script src="../../libs/qunit_2_0_1.js"></script>
 
-<script src = "../model/Point2D.js"></script>
-<script src = "../model/ScreenRectangleArea.js"></script>
-<script src = "../model/RectangleArea.js"></script>
-<script src = "../model/CartesianRectangleArea.js"></script>
+<!-- Run tests -->
+<script src="RectangleAreaTest.js"></script>
+<script src="ScreenRectangleAreaTest.js"></script>
+<script src="CartesianRectangleAreaTest.js"></script>
+<script src="CoordinateTransformerTest.js"></script>
 
-<script src="tests.js"></script>
 </body>
 </html>

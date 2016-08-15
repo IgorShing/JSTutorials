@@ -65,26 +65,12 @@ ScreenRectangleArea.prototype.setWidth = function(width) {
 }
 
 /**
- * Gets the width of the rectangle area.
- */
-ScreenRectangleArea.prototype.getWidth = function() {
-    return this.width;
-}
-
-/**
  * Sets the height of the rectangle area.
  */
 ScreenRectangleArea.prototype.setHeight = function(height) {
     this.height = height;
     this.cornerBottomLeft.setY(this.cornerTopLeft.getY() + height);
     this.cornerBottomRight.setY(this.cornerTopLeft.getY() + height);
-}
-
-/**
- * Gets the height of the rectangle area.
- */
-ScreenRectangleArea.prototype.getHeight = function() {
-    return this.height;
 }
 
 /**
