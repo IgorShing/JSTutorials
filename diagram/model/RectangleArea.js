@@ -9,9 +9,9 @@
 
         // The corner points of the area
         this.cornerTopLeft = cornerTopLeft;
-        this.cornerTopRight = new Point2D(cornerTopLeft.getX() + width, cornerTopLeft.getY());
-        this.cornerBottomLeft = new Point2D(cornerTopLeft.getX(), cornerTopLeft.getY() + height);
-        this.cornerBottomRight = new Point2D(cornerTopLeft.getX() + width, cornerTopLeft.getY() + height);
+        this.cornerTopRight = new Point2D(this.cornerTopLeft.getX() + width, this.cornerTopLeft.getY());
+        this.cornerBottomLeft = new Point2D(this.cornerTopLeft.getX(), this.cornerTopLeft.getY() + height);
+        this.cornerBottomRight = new Point2D(this.cornerTopLeft.getX() + width, this.cornerTopLeft.getY() + height);
 
         this.width = width;
         this.height = height;

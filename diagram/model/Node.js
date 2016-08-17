@@ -1,11 +1,10 @@
 /**
  * Created by Admin on 08.08.2016.
  */
-function Node(id, x, y, neighborsIds){
+function Node(id, point, neighborsIds){
 
     this.id = id;
-    this.x = x;
-    this.y = y;
+    this.point = point;
     this.neighborsIds = neighborsIds;
 }
 
@@ -17,20 +16,12 @@ Node.prototype.setId = function(id){
     this.id = id;
 }
 
-Node.prototype.getX = function(){
-    return this.x;
+Node.prototype.getPoint = function(){
+    return this.point;
 }
 
-Node.prototype.setX = function(x){
-    this.x = x;
-}
-
-Node.prototype.getY = function(){
-    return this.y;
-}
-
-Node.prototype.setY = function(y){
-    this.y = y;
+Node.prototype.setPoint = function(point){
+    this.point = point;
 }
 
 Node.prototype.getNeighborsIds = function(){

@@ -1,23 +1,10 @@
 /**
- * Created by Admin on 14.08.2016.
- */
-
-/**
  * Описывает прямоугольную область, для которой используются декартовы координаты. Начало координат
  * в центре области. Ось ординат направлена вверх.
  */
-function CartesianRectangleArea(width, height) {
-
+function CartesianRectangleArea(cornerTopLeft, width, height) {
     // Initialize parent's fields.
     RectangleArea.apply(this, arguments);
-
-    this.cornerTopLeft = new Point2D(-0.5 * width, 0.5 * height);
-    this.cornerTopRight = new Point2D(0.5 * width, 0.5 * height);
-    this.cornerBottomLeft = new Point2D(-0.5 * width, -0.5 * height);
-    this.cornerBottomRight = new Point2D(0.5 * width, -0.5 * height);
-
-    this.width = width;
-    this.height = height;
 }
 
 //Create inheritance
@@ -29,7 +16,7 @@ function CartesianRectangleArea(width, height) {
 /**
  * Устанавливает размеры прямоугольной области.
  */
-CartesianRectangleArea.prototype.setRectangleArea = function(x, y, width, height) {
+CartesianRectangleArea.prototype.setRectangleArea = function(width, height) {
     this.cornerTopLeft.setX(-0.5 * width);
     this.cornerTopLeft.setY(0.5 * height);
 

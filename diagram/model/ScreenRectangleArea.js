@@ -1,32 +1,11 @@
 /**
- * Created by Admin on 08.08.2016.
- */
-
-/**
  * Describes a rectangle area for screen coordinates. The origin of cooredinates in in the left upper corner.
  * The Y axis is pointed to the bottom. The X axis is pointed to the right. All coordinates >=0.
  */
 
-/**
- * Constructor.
- *
- * @param x
- * @param y
- * @param width
- * @param height
- * @constructor
- */
-function ScreenRectangleArea(x, y, width, height){
-
+function ScreenRectangleArea(cornerTopLeft, width, height){
     // Initialize parent's fields.
     RectangleArea.apply(this, arguments);
-
-    this.cornerTopLeft = new Point2D(x, y);
-    this.cornerTopRight = new Point2D(x + width, y);
-    this.cornerBottomLeft = new Point2D(x, y + height);
-    this.cornerBottomRight = new Point2D(x + width, y + height);
-    this.width = width;
-    this.height = height;
 }
 
 //Create inheritance
@@ -36,20 +15,19 @@ ScreenRectangleArea.prototype = Object.create(RectangleArea.prototype);
 ScreenRectangleArea.prototype.constructor = ScreenRectangleArea;
 
 /**
- * Sets the size of the area.
+ * Sets a new size of the area.
  */
-ScreenRectangleArea.prototype.setRectangleArea = function(x, y, width, height){
-    this.cornerTopLeft.setX(x);
-    this.cornerTopLeft.setY(y);
+ScreenRectangleArea.prototype.setRectangleArea = function(cornerTopLeft, width, height){
+    this.cornerTopLeft = cornerTopLeft;
 
-    this.cornerTopRight.setX(x + width);
-    this.cornerTopRight.setY(y);
+    this.cornerTopRight.setX(cornerTopLeft.getX() + width);
+    this.cornerTopRight.setY(cornerTopLeft.getY());
 
-    this.cornerBottomLeft.setX(x);
-    this.cornerBottomLeft.setY(y + height);
+    this.cornerBottomLeft.setX(cornerTopLeft.getX());
+    this.cornerBottomLeft.setY(cornerTopLeft.getY() + height);
 
-    this.cornerBottomRight.setX(x + width);
-    this.cornerBottomRight.setY(y + height);
+    this.cornerBottomRight.setX(cornerTopLeft.getX() + width);
+    this.cornerBottomRight.setY(cornerTopLeft.getY() + height);
 
     this.width = width;
     this.height = height;

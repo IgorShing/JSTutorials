@@ -5,11 +5,27 @@ function CoordinateTransformer(){
 
 }
 
-CoordinateTransformer.prototype.transform = function(fromArea, toArea, nodes){
+CoordinateTransformer.prototype.fitPointsToArea = function(width, height, points){
+    if (points == null){
+        throw new Error("Points are not initiated.");
+    }
 
-    for (var i = 0; i < Object.keys(data["nodes"]).length; i++){
-        var curNodeData = data["nodes"][i];
-        var node = new Node(curNodeData["id"], curNodeData["x"], curNodeData["y"], curNodeData["neighborsIds"]);
+    // minPoint - the point with minimum x and y coordinates
+    // maxPoint - the point with maximum x xnd y coordinates
+    var maxPoint = MathUtils.getMaxPoint(points);
+    var minPoint = MathUtils.getMinPoint(points);
+
+    // Rescale coordinates of points to fit inside frame
+    var xDiff = maxPoint.getX() - minPoint.getX();
+    var yDiff = maxPoint.getY() - minPoint.getY();
+
+    // Scale coefficient
+    var Kx = width / xDiff;
+    var Ky = height / yDiff;
+
+    for (var i = 0; i < points.length; i++) {
+      points[i].setX(minPoint.getX() + (points[i].getX() - minPoint.getX()) * Kx);
+      points[i].setY(minPoint.getY() + (points[i].getY() - minPoint.getY()) * Ky);
     }
 }
 
@@ -19,7 +35,8 @@ CoordinateTransformer.prototype.transformToCartesianCoordinates = function(area,
         throw Error("Parameters are not valid");
     }
 
-    area
+
+
 
 }
 
