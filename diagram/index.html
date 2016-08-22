@@ -12,6 +12,7 @@
 	<script src = "model/Edge.js"></script>
 	<script src = "model/Node.js"></script>
 	<script src = "model/Graph.js"></script>
+	<script src = "model/Point2D.js"></script>
 
 	
 	<script src = "view/widgets/View.js"></script>
@@ -20,7 +21,9 @@
 	<script src = "view/widgets/GraphView.js"></script>
 	<script src = "view/widgets/WidgetFactory.js"></script>
 	<script src = "dao/DataProvider.js"></script>
+	<script src = "dao/GraphDataExtractor.js"></script>
 	<script src = "controller/MainController.js"></script>
+	<script src = "logic/DiagramBuilder.js"></script>
 
 </head>
 
@@ -114,7 +117,7 @@
 		});
 	
 		$("#link3").click(function() {
-			// mainController.buildDiagram(canvasId, DATA_SET_TYPE.DATA_SET_3);
+			 mainController.buildDiagram(canvasId, DATA_SET_TYPE.DATA_SET_3);
 		});
 		
 		

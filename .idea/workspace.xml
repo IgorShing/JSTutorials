@@ -2,23 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fa92948a-e997-4dda-acbf-8cf4ecb72a19" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/diagram/logic/math/MathUtils.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/diagram/tests/logic/CoordinateTransformerTest.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/diagram/tests/logic/math/MathUtilsTest.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/diagram/tests/model/Point2DTest.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/diagram/tests/model/RectangleAreaTest.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/diagram/tests/model/ScreenRectangleAreaTest.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/diagram/tests/CoordinateTransformerTest.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/diagram/tests/RectangleAreaTest.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/diagram/tests/ScreenRectangleAreaTest.js" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Module15/tabledemo.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/diagram/dao/GraphDataExtractor.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/diagram/logic/DiagramBuilder.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/diagram/tests/dao/GraphDataExtractorTest.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/diagram/logic/CoordinateTransformer.js" afterPath="$PROJECT_DIR$/diagram/logic/CoordinateTransformer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/diagram/model/CartesianRectangleArea.js" afterPath="$PROJECT_DIR$/diagram/model/CartesianRectangleArea.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Module12/index.html" afterPath="$PROJECT_DIR$/Module12/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/diagram/controller/MainController.js" afterPath="$PROJECT_DIR$/diagram/controller/MainController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/diagram/dao/DataProvider.js" afterPath="$PROJECT_DIR$/diagram/dao/DataProvider.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/diagram/index.html" afterPath="$PROJECT_DIR$/diagram/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/diagram/model/Edge.js" afterPath="$PROJECT_DIR$/diagram/model/Edge.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/diagram/model/Graph.js" afterPath="$PROJECT_DIR$/diagram/model/Graph.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/diagram/model/Node.js" afterPath="$PROJECT_DIR$/diagram/model/Node.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/diagram/model/RectangleArea.js" afterPath="$PROJECT_DIR$/diagram/model/RectangleArea.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/diagram/model/ScreenRectangleArea.js" afterPath="$PROJECT_DIR$/diagram/model/ScreenRectangleArea.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/diagram/tests/AllTests.html" afterPath="$PROJECT_DIR$/diagram/tests/AllTests.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/diagram/tests/CartesianRectangleAreaTest.js" afterPath="$PROJECT_DIR$/diagram/tests/model/CartesianRectangleAreaTest.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/diagram/view/widgets/CircleView.js" afterPath="$PROJECT_DIR$/diagram/view/widgets/CircleView.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/diagram/view/widgets/GraphView.js" afterPath="$PROJECT_DIR$/diagram/view/widgets/GraphView.js" />
     </list>
     <ignored path="JSTutorials.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -39,44 +37,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="CoordinateTransformer.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/diagram/logic/CoordinateTransformer.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="750">
-              <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MathUtils.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/diagram/logic/math/MathUtils.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MathUtilsTest.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/diagram/tests/logic/math/MathUtilsTest.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="6" selection-end-column="40" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Graph.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/diagram/model/Graph.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
+            <state relative-caret-position="500">
+              <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GraphDataExtractor.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/diagram/dao/GraphDataExtractor.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="850">
+              <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -84,40 +60,38 @@
       <file leaf-file-name="Edge.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/diagram/model/Edge.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="175">
+              <caret line="7" column="18" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="18" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CartesianRectangleArea.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/diagram/model/CartesianRectangleArea.js">
+      <file leaf-file-name="EdgeView.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/diagram/view/widgets/EdgeView.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-691">
-              <caret line="4" column="31" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="31" />
+            <state relative-caret-position="-291">
+              <caret line="3" column="22" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="22" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Area.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/diagram/model/Area.js">
+      <file leaf-file-name="DataProvider.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/diagram/dao/DataProvider.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
+            <state relative-caret-position="457">
+              <caret line="68" column="53" selection-start-line="68" selection-start-column="44" selection-end-line="68" selection-end-column="53" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CoordinateTransformerTest.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/diagram/tests/logic/CoordinateTransformerTest.js">
+      <file leaf-file-name="GraphDataExtractorTest.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/diagram/tests/dao/GraphDataExtractorTest.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="359">
-              <caret line="35" column="20" selection-start-line="35" selection-start-column="20" selection-end-line="35" selection-end-column="20" />
+            <state relative-caret-position="309">
+              <caret line="13" column="29" selection-start-line="13" selection-start-column="29" selection-end-line="13" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -126,18 +100,38 @@
       <file leaf-file-name="AllTests.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/diagram/tests/AllTests.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="775">
-              <caret line="31" column="39" selection-start-line="31" selection-start-column="39" selection-end-line="31" selection-end-column="39" />
+            <state relative-caret-position="275">
+              <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CartesianRectangleAreaTest.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/diagram/tests/model/CartesianRectangleAreaTest.js">
+      <file leaf-file-name="GraphView.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/diagram/view/widgets/GraphView.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="30" selection-end-column="3" />
+            <state relative-caret-position="450">
+              <caret line="42" column="32" selection-start-line="42" selection-start-column="32" selection-end-line="42" selection-end-column="32" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CircleView.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/diagram/view/widgets/CircleView.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="334">
+              <caret line="27" column="96" selection-start-line="27" selection-start-column="96" selection-end-line="27" selection-end-column="96" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DiagramBuilder.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/diagram/logic/DiagramBuilder.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="175">
+              <caret line="7" column="36" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -148,6 +142,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="HTML File" />
         <option value="JavaScript File" />
       </list>
     </option>
@@ -174,14 +169,27 @@
         <option value="$PROJECT_DIR$/diagram/tests/CartesianRectangleAreaTest.js" />
         <option value="$PROJECT_DIR$/diagram/tests/CoordinateTransformerTest.js" />
         <option value="$PROJECT_DIR$/diagram/tests/ScreenRectangleAreaTest.js" />
-        <option value="$PROJECT_DIR$/diagram/model/Node.js" />
         <option value="$PROJECT_DIR$/diagram/tests/model/Point2DTest.js" />
         <option value="$PROJECT_DIR$/diagram/model/ScreenRectangleArea.js" />
-        <option value="$PROJECT_DIR$/diagram/tests/AllTests.html" />
         <option value="$PROJECT_DIR$/diagram/tests/logic/math/MathUtilsTest.js" />
         <option value="$PROJECT_DIR$/diagram/logic/math/MathUtils.js" />
         <option value="$PROJECT_DIR$/diagram/tests/logic/CoordinateTransformerTest.js" />
         <option value="$PROJECT_DIR$/diagram/logic/CoordinateTransformer.js" />
+        <option value="$PROJECT_DIR$/diagram/tests/AllTests.html" />
+        <option value="$PROJECT_DIR$/Module15/tabledemo.html" />
+        <option value="$PROJECT_DIR$/Module12/index.html" />
+        <option value="$PROJECT_DIR$/diagram/controller/MainController.js" />
+        <option value="$PROJECT_DIR$/diagram/model/Node.js" />
+        <option value="$PROJECT_DIR$/diagram/tests/dao/DataExtractorTest.js" />
+        <option value="$PROJECT_DIR$/diagram/dao/DataProvider.js" />
+        <option value="$PROJECT_DIR$/diagram/index.html" />
+        <option value="$PROJECT_DIR$/diagram/view/widgets/CircleView.js" />
+        <option value="$PROJECT_DIR$/diagram/view/widgets/GraphView.js" />
+        <option value="$PROJECT_DIR$/diagram/model/Graph.js" />
+        <option value="$PROJECT_DIR$/diagram/dao/DataExtractor.js" />
+        <option value="$PROJECT_DIR$/diagram/logic/DiagramBuilder.js" />
+        <option value="$PROJECT_DIR$/diagram/model/Edge.js" />
+        <option value="$PROJECT_DIR$/diagram/dao/GraphDataExtractor.js" />
       </list>
     </option>
   </component>
@@ -222,6 +230,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -255,15 +265,218 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JSTutorials" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JSTutorials" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="diagram" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="view" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="widgets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JSTutorials" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JSTutorials" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="diagram" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="view" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JSTutorials" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JSTutorials" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="diagram" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tests" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JSTutorials" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JSTutorials" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="diagram" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tests" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="logic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JSTutorials" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JSTutorials" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="diagram" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tests" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="logic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="math" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JSTutorials" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JSTutorials" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="diagram" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tests" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dao" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JSTutorials" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JSTutorials" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="diagram" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JSTutorials" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JSTutorials" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="diagram" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="logic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JSTutorials" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JSTutorials" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="diagram" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dao" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JSTutorials" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JSTutorials" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="diagram" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="aspect.path.notification.shown" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -722,11 +935,14 @@
       <workItem from="1471245833793" duration="8044000" />
       <workItem from="1471280942683" duration="11414000" />
       <workItem from="1471416401739" duration="7656000" />
+      <workItem from="1471502884107" duration="7348000" />
+      <workItem from="1471589522280" duration="5607000" />
+      <workItem from="1471853395781" duration="8980000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27114000" />
+    <option name="totallyTimeSpent" value="49049000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1096" extended-state="6" />
@@ -738,18 +954,18 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14947917" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15625" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -774,58 +990,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/diagram/logic/CoordinateTransformer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/diagram/model/Graph.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/diagram/model/Edge.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/diagram/model/Node.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/diagram/model/CartesianRectangleArea.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="4" column="31" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/diagram/model/Area.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/diagram/tests/logic/CoordinateTransformerTest.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="275">
@@ -838,7 +1002,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="250">
           <caret line="10" column="20" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -854,7 +1017,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="350">
           <caret line="14" column="21" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -862,7 +1024,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3500">
           <caret line="140" column="51" selection-start-line="140" selection-start-column="51" selection-end-line="140" selection-end-column="51" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -877,7 +1038,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -885,7 +1045,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="650">
           <caret line="26" column="2" selection-start-line="26" selection-start-column="2" selection-end-line="26" selection-end-column="2" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -908,7 +1067,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="125">
           <caret line="5" column="70" selection-start-line="5" selection-start-column="70" selection-end-line="5" selection-end-column="70" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -916,7 +1074,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1800">
           <caret line="74" column="0" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -925,13 +1082,6 @@
         <state relative-caret-position="200">
           <caret line="8" column="79" selection-start-line="8" selection-start-column="79" selection-end-line="8" selection-end-column="79" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/diagram/factoryProducer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -949,20 +1099,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/diagram/dao/DataProvider.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-466">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/diagram/view/widgets/GraphView.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="575">
-          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="37" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/diagram/tests/tests.js" />
     <entry file="file://$PROJECT_DIR$/diagram/tests/model/RectangleAreaTest.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -975,7 +1111,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="600">
           <caret line="24" column="21" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -983,20 +1118,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-225">
           <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/diagram/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2125">
-          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/diagram/controller/MainController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="11" selection-end-column="36" />
         </state>
       </provider>
     </entry>
@@ -1015,43 +1136,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/diagram/model/Point2D.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="19" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/diagram/logic/graphLayout.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1059">
-          <caret line="150" column="38" selection-start-line="150" selection-start-column="38" selection-end-line="150" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/diagram/model/Node.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/diagram/model/ScreenRectangleArea.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="250">
           <caret line="10" column="20" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/diagram/model/Edge.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1059,14 +1147,112 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="30" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/diagram/model/Area.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/diagram/tests/logic/math/MathUtilsTest.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="6" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/diagram/model/CartesianRectangleArea.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="4" column="31" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/diagram/logic/CoordinateTransformer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="434">
+          <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/diagram/tests/logic/CoordinateTransformerTest.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/diagram/tests/AllTests.html">
+    <entry file="file://$PROJECT_DIR$/Module15/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="775">
-          <caret line="31" column="39" selection-start-line="31" selection-start-column="39" selection-end-line="31" selection-end-column="39" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Module15/menu.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/diagram/view/widgets/WidgetFactory.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Module15/tabledemo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="48" column="21" selection-start-line="48" selection-start-column="21" selection-end-line="48" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Module12/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="31" column="13" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Module15/index15.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/diagram/factoryProducer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/diagram/controller/MainController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="8" column="55" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/diagram/model/Point2D.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="19" selection-end-column="1" />
           <folding />
         </state>
       </provider>
@@ -1079,54 +1265,106 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/diagram/model/Area.js">
+    <entry file="file://$PROJECT_DIR$/diagram/model/Node.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
+        <state relative-caret-position="525">
+          <caret line="21" column="1" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/diagram/logic/graphLayout.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="759">
+          <caret line="150" column="38" selection-start-line="150" selection-start-column="38" selection-end-line="150" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/diagram/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="23" column="41" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="41" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/diagram/model/Graph.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/diagram/tests/logic/math/MathUtilsTest.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="6" selection-end-column="40" />
+        <state relative-caret-position="500">
+          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/diagram/model/CartesianRectangleArea.js">
+    <entry file="file://$PROJECT_DIR$/diagram/logic/DiagramBuilder.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-691">
-          <caret line="4" column="31" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="31" />
+        <state relative-caret-position="175">
+          <caret line="7" column="36" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/diagram/logic/CoordinateTransformer.js">
+    <entry file="file://$PROJECT_DIR$/diagram/view/widgets/CircleView.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="750">
-          <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+        <state relative-caret-position="334">
+          <caret line="27" column="96" selection-start-line="27" selection-start-column="96" selection-end-line="27" selection-end-column="96" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/diagram/tests/logic/CoordinateTransformerTest.js">
+    <entry file="file://$PROJECT_DIR$/diagram/view/widgets/GraphView.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="359">
-          <caret line="35" column="20" selection-start-line="35" selection-start-column="20" selection-end-line="35" selection-end-column="20" />
+        <state relative-caret-position="450">
+          <caret line="42" column="32" selection-start-line="42" selection-start-column="32" selection-end-line="42" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/diagram/tests/AllTests.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/diagram/tests/dao/GraphDataExtractorTest.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="309">
+          <caret line="13" column="29" selection-start-line="13" selection-start-column="29" selection-end-line="13" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/diagram/dao/DataProvider.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="457">
+          <caret line="68" column="53" selection-start-line="68" selection-start-column="44" selection-end-line="68" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/diagram/dao/GraphDataExtractor.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="850">
+          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/diagram/model/Edge.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="7" column="18" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/diagram/view/widgets/EdgeView.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-291">
+          <caret line="3" column="22" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="22" />
           <folding />
         </state>
       </provider>
