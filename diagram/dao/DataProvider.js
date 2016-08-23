@@ -66,19 +66,13 @@ function getDataSet_3(){
 		'{ "id": 5, "x": "180", "y": "300", "text": "F" }'+
 		'],'+
 		'"linkDataArray": ['+
-		'{ "from": 0, "to": 0, "text": "", "curviness": -20 },'+
+		'{ "from": 1, "to": 3, "text": "", "curviness": -20 },'+
 		'{ "from": 0, "to": 1, "text": "", "curviness": 20 },'+
-		'{ "from": 1, "to": 0, "text": "", "curviness": 20 },'+
-		'{ "from": 1, "to": 1, "text": "", "curviness": -20 },'+
-		'{ "from": 1, "to": 2, "text": "" },'+
-		'{ "from": 1, "to": 4, "text": "" },'+
-		'{ "from": 2, "to": 0, "text": "" },'+
+		'{ "from": 4, "to": 1, "text": "", "curviness": 20 },'+
+		'{ "from": 2, "to": 5, "text": "", "curviness": -20 },'+
 		'{ "from": 2, "to": 3, "text": "" },'+
-		'{ "from": 3, "to": 0, "text": "" },'+
-		'{ "from": 3, "to": 3, "text": "", "curviness": 20 },'+
 		'{ "from": 4, "to": 0, "text": "" },'+
-		'{ "from": 4, "to": 4, "text": "" }'+
-		']'+
-		'}';
+		'{ "from": 3, "to": 5, "text": "" }'+
+		']}';
 
 }

@@ -12,7 +12,7 @@ Graph.prototype.getNodes = function(){
 }
 
 Graph.prototype.setEdges = function(edges){
-    this.nodes = edges;
+    this.edges = edges;
 }
 
 Graph.prototype.getEdges = function(){
