@@ -14,6 +14,27 @@ DiagramBuilder.buildDiagram = function(canvasId,dataSetType){
     // Draw a new graph
     var graph = GraphDataExtractor.getGraph(data);
     var graphView = new GraphView(graph);
+
+    // Transform nodes coordinates to a points array
+    // ...
+    var nodes = graph.getNodes();
+    var points = [];
+    for (var i = 0; i < nodes.length; i++){
+        points.push(nodes[i].getPoint());
+    }
+
+    // Layout nodes
+    var layout = new GraphLayout(new RandomLayout(points));
+    layout.apply();
+
+    // Transform coordinates
+    var marginX = 30;
+    var marginY = 30;
+
+    var canvas = document.getElementById(canvasId);
+    var screenArea = new ScreenRectangleArea(new Point2D(marginX, marginY), canvas.width - 2*marginX, canvas.height - 2*marginY);
+    CoordinateTransformer.transformToScreenCoordinates(screenArea, points);
+
     graphView.draw(canvasId);
 }
 

@@ -5,9 +5,16 @@ function CoordinateTransformer(){
 
 }
 
-CoordinateTransformer.prototype.fitPointsToArea = function(width, height, points){
-    if (points == null){
-        throw new Error("Points are not initiated.");
+// Fits the nodes coordinates to Cartesian system
+CoordinateTransformer.prototype.transformToCartesianCoordinates = function(width, height, points){
+
+
+}
+
+// Fits the nodes coordinates to Screen coordinate system
+CoordinateTransformer.transformToScreenCoordinates = function(screenArea, points){
+    if (points == null || points.length == 1){
+        throw new Error("Points are not initiated or only one point is present.");
     }
 
     // minPoint - the point with minimum x and y coordinates
@@ -20,27 +27,12 @@ CoordinateTransformer.prototype.fitPointsToArea = function(width, height, points
     var yDiff = maxPoint.getY() - minPoint.getY();
 
     // Scale coefficient
-    var Kx = width / xDiff;
-    var Ky = height / yDiff;
+    var Kx = Math.abs(screenArea.getWidth() / xDiff);
+    var Ky = Math.abs(screenArea.getHeight() / yDiff);
 
     for (var i = 0; i < points.length; i++) {
-      points[i].setX(minPoint.getX() + (points[i].getX() - minPoint.getX()) * Kx);
-      points[i].setY(minPoint.getY() + (points[i].getY() - minPoint.getY()) * Ky);
+        points[i].setX(screenArea.getCornerTopLeft().getX() + (points[i].getX() - minPoint.getX()) * Kx);
+        // The y-axis is pointed to the bottom in the screen coordinates
+        points[i].setY(screenArea.getCornerBottomLeft().getY() - (points[i].getY() - minPoint.getY()) * Ky);
     }
-}
-
-// Fits the nodes coordinates to Cartesian system
-CoordinateTransformer.prototype.transformToCartesianCoordinates = function(area, nodes){
-    if (area == null || nodes == null){
-        throw Error("Parameters are not valid");
-    }
-
-
-
-
-}
-
-// Fits the nodes coordinates to Screen coordinate system
-CoordinateTransformer.prototype.transformToScreenCoordinates = function(area, nodes){
-
 }

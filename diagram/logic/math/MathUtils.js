@@ -29,3 +29,10 @@ MathUtils.getMinPoint = function(points){
     var minPoint = new Point2D(Math.min.apply(null, coordX), Math.min.apply(null, coordY));
     return minPoint;
 }
+
+/**
+ * Генерирует случайную величину с равномерным распределением в заданных пределах .
+ */
+MathUtils.getUniformRandomValue = function(lowLimit, upperLimit) {
+    return lowLimit + (upperLimit - lowLimit) * Math.random();
+}

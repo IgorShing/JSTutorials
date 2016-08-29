@@ -58,12 +58,12 @@ function getDataSet_2(){
 function getDataSet_3(){
 	return '{"nodeKeyProperty": "id",'+
 		'"nodeDataArray": ['+
-		'{ "id": 0, "x": "250", "y": "200", "text": "A" },'+
-		'{ "id": 1, "x": "200", "y": "100", "text": "B" },'+
-		'{ "id": 2, "x": "100", "y": "100", "text": "C" },'+
-		'{ "id": 3, "x": "50", "y": "200", "text": "D" },'+
-		'{ "id": 4, "x": "90", "y": "300","text": "E" },'+
-		'{ "id": 5, "x": "180", "y": "300", "text": "F" }'+
+		'{ "id": 0, "x": "25", "y": "20", "text": "A" },'+
+		'{ "id": 1, "x": "20", "y": "10", "text": "B" },'+
+		'{ "id": 2, "x": "10", "y": "10", "text": "C" },'+
+		'{ "id": 3, "x": "5", "y": "20", "text": "D" },'+
+		'{ "id": 4, "x": "9", "y": "30","text": "E" },'+
+		'{ "id": 5, "x": "18", "y": "30", "text": "F" }'+
 		'],'+
 		'"linkDataArray": ['+
 		'{ "from": 1, "to": 3, "text": "", "curviness": -20 },'+
@@ -74,5 +74,4 @@ function getDataSet_3(){
 		'{ "from": 4, "to": 0, "text": "" },'+
 		'{ "from": 3, "to": 5, "text": "" }'+
 		']}';
-
 }
