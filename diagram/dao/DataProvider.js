@@ -56,7 +56,7 @@ function getDataSet_2(){
 }
 
 function getDataSet_3(){
-	return '{"nodeKeyProperty": "id",'+
+/*	return '{"nodeKeyProperty": "id",'+
 		'"nodeDataArray": ['+
 		'{ "id": 0, "x": "25", "y": "20", "text": "A" },'+
 		'{ "id": 1, "x": "20", "y": "10", "text": "B" },'+
@@ -64,6 +64,34 @@ function getDataSet_3(){
 		'{ "id": 3, "x": "5", "y": "20", "text": "D" },'+
 		'{ "id": 4, "x": "9", "y": "30","text": "E" },'+
 		'{ "id": 5, "x": "18", "y": "30", "text": "F" }'+
+		'],'+
+		'"linkDataArray": ['+
+		'{ "from": 1, "to": 3, "text": "", "curviness": -20 },'+
+		'{ "from": 0, "to": 1, "text": "", "curviness": 20 },'+
+		'{ "from": 4, "to": 1, "text": "", "curviness": 20 },'+
+		'{ "from": 2, "to": 5, "text": "", "curviness": -20 },'+
+		'{ "from": 2, "to": 3, "text": "" },'+
+		'{ "from": 4, "to": 0, "text": "" },'+
+		'{ "from": 3, "to": 5, "text": "" }'+
+		']}';*/
+
+	return '{"nodeKeyProperty": "id",'+
+		'"nodeDataArray": ['+
+		'{ "id": 0, "x": "25", "y": "20", "text": "A" },'+
+		'{ "id": 1, "x": "20", "y": "10", "text": "B" },'+
+		'{ "id": 2, "x": "10", "y": "10", "text": "C" },'+
+		'{ "id": 3, "x": "5", "y": "20", "text": "D" },'+
+		'{ "id": 4, "x": "9", "y": "30","text": "E" },'+
+		'{ "id": 5, "x": "18", "y": "30", "text": "F" },'+
+		'{ "id": 6, "x": "15", "y": "10", "text": "G" },'+
+		'{ "id": 7, "x": "30", "y": "16", "text": "H" },'+
+		'{ "id": 8, "x": "8", "y": "23", "text": "I" },'+
+		'{ "id": 9, "x": "19", "y": "35","text": "K" },'+
+		'{ "id": 10, "x": "19", "y": "35","text": "L" },'+
+		'{ "id": 11, "x": "19", "y": "35","text": "M" },'+
+		'{ "id": 12, "x": "19", "y": "35","text": "N" },'+
+		'{ "id": 13, "x": "19", "y": "35","text": "O" },'+
+		'{ "id": 14, "x": "19", "y": "35","text": "P" }'+
 		'],'+
 		'"linkDataArray": ['+
 		'{ "from": 1, "to": 3, "text": "", "curviness": -20 },'+

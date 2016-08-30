@@ -2,21 +2,21 @@
  * Расставляет узлы графа по окружности для задания начальных значений координат узлов.
  *
  */
-function CircleLayout(areaCenterX, areaCenterY) {
-    this.areaCenterX = areaCenterX;
-    this.areaCenterY = areaCenterY;
+function CircleLayout(rectangleArea, points) {
+    this.rectangleArea = rectangleArea;
+    this.points = points;
 }
 
+CircleLayout.prototype.apply = function() {
 
+    var radius;
 
-public void circleLayout() {
-    // calculate the radius of the circle
-    var double radius;
+    var areaCenterX = this.rectangleArea.getCenter().getX();
+    var areaCenterY = this.rectangleArea.getCenter().getY();
 
-    double areaCenterX = cartesianRectangleArea.getCenter().getX();
-    double areaCenterY = cartesianRectangleArea.getCenter().getY();
+    var width = this.rectangleArea.getWidth();
+    var height = this.rectangleArea.getHeight();
 
-    // calc radius
     if (height > width) {
         radius = width / 2.0;
     }
@@ -24,9 +24,8 @@ public void circleLayout() {
         radius = height / 2.0;
     }
 
-    for (int i = 0; i < nNodes; i++) {
-        xPos[i] = radius * Math.cos(2 * Math.PI * i / nNodes) + areaCenterX;
-        yPos[i] = radius * Math.sin(2 * Math.PI * i / nNodes) + areaCenterY;
+    for (var i = 0; i < this.points.length; i++) {
+        this.points[i].setX(radius * Math.cos(2 * Math.PI * i / this.points.length) + areaCenterX);
+        this.points[i].setY(radius * Math.sin(2 * Math.PI * i / this.points.length) + areaCenterY);
     }
-}
 }
