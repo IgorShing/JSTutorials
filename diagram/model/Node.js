@@ -1,12 +1,11 @@
 /**
  * Created by Admin on 08.08.2016.
  */
-function Node(id, point, text, neighborsIds){
+function Node(id, point, text){
 
     this.id = id;
     this.point = point;
     this.text = text;
-    this.neighborsIds = neighborsIds;
 }
 
 Node.prototype.getId = function(){
@@ -31,12 +30,4 @@ Node.prototype.getText = function(){
 
 Node.prototype.setText = function(text){
     this.text = text;
-}
-
-Node.prototype.getNeighborsIds = function(){
-    return this.neighborsIds;
-}
-
-Node.prototype.setNeighborsIds = function(NeighborsIds){
-    this.neighborsIds = neighborsIds;
 }
