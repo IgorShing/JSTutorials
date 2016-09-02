@@ -56,7 +56,7 @@ function getDataSet_2(){
 }
 
 function getDataSet_3(){
-/*	return '{"nodeKeyProperty": "id",'+
+	return '{"nodeKeyProperty": "id",'+
 		'"nodeDataArray": ['+
 		'{ "id": 0, "x": "25", "y": "20", "text": "A" },'+
 		'{ "id": 1, "x": "20", "y": "10", "text": "B" },'+
@@ -73,9 +73,9 @@ function getDataSet_3(){
 		'{ "from": 2, "to": 3, "text": "" },'+
 		'{ "from": 4, "to": 0, "text": "" },'+
 		'{ "from": 3, "to": 5, "text": "" }'+
-		']}';*/
+		']}';
 
-	return '{"nodeKeyProperty": "id",'+
+	/*return '{"nodeKeyProperty": "id",'+
 		'"nodeDataArray": ['+
 		'{ "id": 0, "x": "25", "y": "20", "text": "A" },'+
 		'{ "id": 1, "x": "20", "y": "10", "text": "B" },'+
@@ -101,5 +101,5 @@ function getDataSet_3(){
 		'{ "from": 2, "to": 3, "text": "" },'+
 		'{ "from": 4, "to": 0, "text": "" },'+
 		'{ "from": 3, "to": 5, "text": "" }'+
-		']}';
+		']}';*/
 }

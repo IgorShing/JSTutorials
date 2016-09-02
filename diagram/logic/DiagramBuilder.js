@@ -32,7 +32,8 @@ DiagramBuilder.buildDiagram = function(canvasId,dataSetType){
 
     // Layout nodes
     // var layout = new GraphLayout(new RandomLayout(points));
-    var layout = new GraphLayout(new CircleLayout(screenArea, points));
+    // var layout = new GraphLayout(new CircleLayout(screenArea, points));
+    var layout = new GraphLayout(new KamadaKawaiLayout(screenArea, points));
     layout.apply();
 
     CoordinateTransformer.transformToScreenCoordinates(screenArea, points);

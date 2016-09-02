@@ -1,3 +1,7 @@
+
+
+// TODO Add the functionality to methods that checks if the passed parameters are ok.
+
 function KamadaKawaiLayoutConfig(){
     // Точность EPSILON
     this.acuracy;

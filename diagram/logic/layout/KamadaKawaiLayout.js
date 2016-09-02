@@ -8,14 +8,12 @@
 
 function KamadaKawaiLayout(cartesianRectangleArea, points, configuration){
 
-    this.configuration = configuration;
-
-    this.acuracy = configuration.getAcuracy();
-    this.maxIterations = configuration.getMaxIterations();
-    this.minEdgeNodesDistance = configuration.getMinEdgeNodesDistance();
-    var disconnectedFactor = configuration.getDisconnectedFactor();
-    var lengthFactor = configuration.getLengthFactor();
-    var desiredEdgeLength = configuration.getDesiredEdgeLength();
+    if (configuration == null || configuration == undefined){
+        // Use default configuration
+        this.configuration = new KamadaKawaiLayoutConfig();
+    } else {
+        this.configuration = configuration;
+    }
 
     // Область, которая содержит декартовы координаты
     this.cartesianRectangleArea = cartesianRectangleArea;
@@ -23,17 +21,13 @@ function KamadaKawaiLayout(cartesianRectangleArea, points, configuration){
     this.points = points;
 
     // Матрица расстояний
-    this.distanceMatrix = this.formDistanceMatrix(points);
+    // this.distanceMatrix = this.formDistanceMatrix(points);
 
     // Матрица желаемых расстояний
     this.lengthMatrix = this.formLengthMatrix(points);
 
     // Матрица "коэффициентов жесткости" для "пружин"
     this.stiffnessMatrix = this.formStiffnessMatrix(points);
-
-    // Для оптимизации
-    var maxDeltaM;
-    var indexForMaxDeltaM;
 }
 
 /**
@@ -45,21 +39,20 @@ KamadaKawaiLayout.prototype.formLengthMatrix = function(points) {
     var height = this.cartesianRectangleArea.getHeight();
     var length_factor = this.configuration.getLengthFactor();
 
-    var desiredEdgeLength = Math.min(width, height) / this.graphDiameter * length_factor;
+    var desiredEdgeLength = Math.min(width, height) / this.graphDiameter() * length_factor;
 
-    var lengthMatrix = null;
+    var lengthMatrix = math.zeros(points.length, points.length);
     var distanceMatrix = this.formDistanceMatrix(points);
 
     // Заполняем матрицу одинаковыми расстояниями
     for (var i = 0; i < points.length - 1; i++) {
-        lengthMatrix[i] = [];
         for (var j = i + 1; j < points.length; j++) {
-            lengthMatrix[i][j] = desiredEdgeLength * distanceMatrix[i][j];
-            lengthMatrix[j][i] = lengthMatrix[i][j];
+            lengthMatrix.set([i, j], desiredEdgeLength * distanceMatrix.get([i, j]));
+            lengthMatrix.set([j, i], lengthMatrix.get([i, j]));
         }
-        lengthMatrix[i][i] = 0.0;
+        lengthMatrix.set([i, i], 0.0);
     }
-    lengthMatrix[points.length - 1][points.length - 1] = 0.0;
+    lengthMatrix.set([points.length - 1, points.length - 1], 0.0);
     return lengthMatrix;
 }
 
@@ -73,7 +66,7 @@ KamadaKawaiLayout.prototype.graphDiameter = function(){
     // Вычисляем расстояния между всеми парами узлов и возвращаем максимальное расстояние.
     for (var i = 0; i < this.points.length - 1; i++) {
         for (var j = i + 1; j < this.points.length; j++) {
-            dist = CoordinateUtils.distance(this.points[i].getPoint(), this.points[j].getPoint());
+            dist = CoordinateUtils.distance(this.points[i], this.points[j]);
             if (dist > diameter) {
                 diameter = dist;
             }
@@ -87,19 +80,18 @@ KamadaKawaiLayout.prototype.graphDiameter = function(){
  */
 KamadaKawaiLayout.prototype.formDistanceMatrix = function(points) {
 
-    var distanceMatrix = null;
+    var distanceMatrix = math.zeros(points.length, points.length);
     var minNodesDistance = this.configuration.getMinNodesDistance();
 
     // Заполняем матрицу одинаковыми расстояниями
     for (var i = 0; i < points.length - 1; i++) {
-        distanceMatrix[i] = [];
         for (var j = i + 1; j < points.length; j++) {
-            distanceMatrix[i][j] = minNodesDistance;
-            distanceMatrix[j][i] = distanceMatrix[i][j];
+            distanceMatrix.set([i, j], minNodesDistance);
+            distanceMatrix.set([j, i], distanceMatrix.get([i, j]));
         }
-        distanceMatrix[i][i] = 0.0;
+        distanceMatrix.set([i, i], 0.0);
     }
-    distanceMatrix[points.length - 1][points.length - 1] = 0.0;
+    distanceMatrix.set([points.length - 1, points.length - 1], 0.0);
     return distanceMatrix;
 }
 
@@ -108,30 +100,53 @@ KamadaKawaiLayout.prototype.formDistanceMatrix = function(points) {
  */
 KamadaKawaiLayout.prototype.formStiffnessMatrix = function(points) {
 
-    var stiffness = null;
+    var stiffnessMatrix = math.zeros(points.length, points.length);
     var distanceMatrix = this.formDistanceMatrix(points);
     var springStiffness = this.configuration.getSpringStiffness();
 
     for (var i = 0; i < points.length - 1; i++) {
         for (var j = i + 1; j < points.length; j++) {
-            stiffness[i][j] = springStiffness / (distanceMatrix[i][j] * distanceMatrix[i][j]);
-            stiffness[j][i] = stiffness[i][j];
+            stiffnessMatrix.set([i, j], springStiffness / (distanceMatrix.get([i, j]) * distanceMatrix.get([i, j])));
+            stiffnessMatrix.set([j, i], stiffnessMatrix.get([i, j]));
         }
-        stiffness[i][i] = Number.POSITIVE_INFINITY; // Бесконечность
+        stiffnessMatrix.set([i, i], Number.POSITIVE_INFINITY); // Бесконечность
     }
-    stiffness[points.length - 1][points.length - 1] = Number.POSITIVE_INFINITY; // Бесконечность
+    stiffnessMatrix.set([points.length - 1, points.length - 1], Number.POSITIVE_INFINITY); // Бесконечность
+    return stiffnessMatrix;
 }
 
 /**
- * Вычисляет необходимые коэффициенты и прибавку к координатам для заданной
- * точки, после ее взаимодействия через "пружины" с остальными точками.
- *
+ * Вычисление градиента функции "потенциальной энергии" для заданного узла m.
  */
+KamadaKawaiLayout.prototype.potentialEnergyGradient = function(m, points) {
+    var result = 0.0;
 
-KamadaKawaiLayout.pointMoving = function(){
+    if (m >= 0 && m < points.length) {
 
+        var xPartial = this.partialDerivativeX(m, points);
+        var yPartial = this.partialDerivativeY(m, points);
+
+        result = Math.sqrt(xPartial * xPartial + yPartial * yPartial);
+    }
+    return result;
 }
 
+/**
+ * Находит индекс в массиве координат узлов соответствующий узлу с максимальным градиентом потенциальной энергии.
+ * Returns index and the corresponding value.
+ */
+KamadaKawaiLayout.prototype.findIndexMaxPotentialEnergyGradient = function(points) {
+    var gradients = [];
+
+    for (var i = 0; i < points.length; i++) {
+        gradients.push(this.potentialEnergyGradient(i, points));
+    }
+
+    var indexOfMaxValue = MathUtils.getIndexOfMaxValue(gradients);
+    var maxValue = gradients[indexOfMaxValue];
+
+    return [indexOfMaxValue, maxValue];
+}
 
 /**
  * Find deltas.
@@ -141,20 +156,20 @@ KamadaKawaiLayout.pointMoving = function(){
  *     D*x + E*y = -B
  *  where x = array[0], y = array[1]
  */
-KamadaKawaiLayout.findDeltas = function (A, B, C, D, E) {
+KamadaKawaiLayout.prototype.findDeltas = function (A, B, C, D, E) {
 
-    var x = 0.0;
-    var y = 0.0;
+    var dx = 0.0;
+    var dy = 0.0;
 
     try {
-        y = (B * C - A * D) / (D * D - C * E);
-        x = (-A - D * y) / C;
+        dy = (B * C - A * D) / (D * D - C * E);
+        dx = (-A - D * dy) / C;
     }
     catch (err) {
-        console.log(err.message());
+        console.log(err);
     }
 
-    return [x, y];
+    return [dx, dy];
 }
 
 /**
@@ -177,7 +192,7 @@ KamadaKawaiLayout.prototype.partialDerivativeX = function(m, points){
                 pointB = points[m];
                 dist = CoordinateUtils.distance(pointA, pointB);
                 deltaX = (pointB.getX() - pointA.getX());
-                xPartial += this.stiffnessMatrix[m][i] * deltaX * (1.0 - length[m][i] / dist);
+                xPartial += this.stiffnessMatrix.get([m, i]) * deltaX * (1.0 - this.lengthMatrix.get([m, i]) / dist);
             }
         }
     }
@@ -198,7 +213,7 @@ KamadaKawaiLayout.prototype.partialDerivativeY = function(m, points){
                 pointB = points[m];
                 dist = CoordinateUtils.distance(pointA, pointB);
                 deltaY = (pointB.getY() - pointA.getY());
-                yPartial += this.stiffnessMatrix[m][i] * deltaY * (1.0 - length[m][i] / dist);
+                yPartial += this.stiffnessMatrix.get([m, i]) * deltaY * (1.0 - this.lengthMatrix.get([m, i]) / dist);
             }
         }
     }
@@ -224,7 +239,7 @@ KamadaKawaiLayout.prototype.partialDerivativeXX = function(m, points){
                 dist3 = dist * dist *dist;
                 deltaY = (pointB.getY() - pointA.getY());
 
-                xxPartial += this.stiffnessMatrix[m][i] * (1.0 - length[m][i] * deltaY * deltaY / dist3);
+                xxPartial += this.stiffnessMatrix.get([m, i]) * (1.0 - this.lengthMatrix.get([m, i]) * deltaY * deltaY / dist3);
             }
         }
     }
@@ -251,7 +266,7 @@ KamadaKawaiLayout.prototype.partialDerivativeXY = function(m, points){
                 deltaX = (pointB.getX() - pointA.getX());
                 deltaY = (pointB.getY() - pointA.getY());
 
-                xyPartial += this.stiffnessMatrix[m][i] * length[m][i] * deltaX * deltaY / dist3;
+                xyPartial += this.stiffnessMatrix.get([m, i]) * this.lengthMatrix.get([m, i]) * deltaX * deltaY / dist3;
             }
         }
     }
@@ -281,55 +296,72 @@ KamadaKawaiLayout.prototype.partialDerivativeYY = function(m, points){
                 dist3 = dist * dist *dist;
                 deltaX = (pointB.getX() - pointA.getX());
 
-                yyPartial += this.stiffnessMatrix[m][i] * (1.0 - length[m][i] * deltaX * deltaX / dist3);
+                yyPartial += this.stiffnessMatrix.get([m, i]) * (1.0 - this.lengthMatrix.get([m, i]) * deltaX * deltaX / dist3);
             }
         }
     }
     return yyPartial;
 }
 
-private double[] pointMoving(int m) {
+/**
+ * Calculates the displacement of a point.
+ * The positions of other points are taken into account.
+ *
+ * Вычисляет необходимые коэффициенты и прибавку к координатам для заданной
+ * точки, после ее взаимодействия через "пружины" с остальными точками.
+ *
+ * @param m
+ * @param points
+ */
+KamadaKawaiLayout.prototype.pointDisplacement = function(m, points) {
+
     // Прибавка к координатам delta[0] = dx, delta[1] = dy
-    double delta[];
-    double xPartial = 0.0;
-    double yPartial = 0.0;
-    double xxPartial = 0.0;
-    double xyPartial = 0.0; // xyPartial = yxPartial
-    double yyPartial = 0.0;
-    double dist;
-    // Расстояние в 3-й степени
-    double dist3;
-    double deltaX;
-    double deltaY;
+    var xPartial = this.partialDerivativeX(m, points);
+    var yPartial = this.partialDerivativeY(m, points);
+    var xxPartial = this.partialDerivativeXX(m, points);
+    var xyPartial = this.partialDerivativeXY(m, points);
+    var yyPartial = this.partialDerivativeYY(m, points);
 
-    if (m >= 0 && m < nNodes) {
-
-        for (int i = 0; i < nNodes; i++) {
-            if (i != m) {
-
-                dist = CoordinateUtils.distance(xPos[i], yPos[i], xPos[m], yPos[m]);
-                dist3 = dist * dist * dist;
-                deltaX = (xPos[m] - xPos[i]);
-                deltaY = (yPos[m] - yPos[i]);
-
-                xPartial += stiffness[m][i] * deltaX * (1.0 - length[m][i] / dist);
-                yPartial += stiffness[m][i] * deltaY * (1.0 - length[m][i] / dist);
-                xxPartial += stiffness[m][i] * (1.0 - length[m][i] * deltaY * deltaY / dist3);
-                xyPartial += stiffness[m][i] * length[m][i] * deltaX * deltaY / dist3;
-                yyPartial += stiffness[m][i] * (1.0 - length[m][i] * deltaX * deltaX / dist3);
-            }
-        }
-    }
-    delta = findDeltas(xPartial, yPartial, xxPartial, xyPartial, yyPartial);
-    return new double[] { delta[0], delta[1] };
+    return this.findDeltas(xPartial, yPartial, xxPartial, xyPartial, yyPartial);
 }
 
 /**
  * Runs the algorithm.
  */
 
-KamadaKawaiLayout.apply = function (){
+KamadaKawaiLayout.prototype.apply = function (){
+    console.log("Started Kamada-Kawai layout...");
+    var iterations = 0;
+    var delta;
 
+    // Задаем начальное расположение узлов
+    // randomizeLayout();
+    // circleLayout(10);
+
+    var EPSILON = this.configuration.getAcuracy();
+    var MAX_ITERATIONS = this.configuration.getMaxIterations();
+
+    var res = this.findIndexMaxPotentialEnergyGradient(this.points);
+
+    var indexForMaxDeltaM = res[0];
+    var maxDeltaM = res[1];
+
+    while (maxDeltaM > EPSILON && iterations < MAX_ITERATIONS) {
+        while (this.potentialEnergyGradient(indexForMaxDeltaM, this.points) > EPSILON || iterations > MAX_ITERATIONS) {
+            delta = this.pointDisplacement(indexForMaxDeltaM, this.points);
+
+            this.points[indexForMaxDeltaM].setX(+this.points[indexForMaxDeltaM].getX() + +delta[0]);
+            this.points[indexForMaxDeltaM].setY(+this.points[indexForMaxDeltaM].getY() + +delta[1]);
+        }
+        var res = this.findIndexMaxPotentialEnergyGradient(this.points);
+
+        indexForMaxDeltaM = res[0];
+        maxDeltaM = res[1];
+        console.log(iterations++);
+    }
+  //   adjustForGravity();
+  //   scaleCoordinates(width, height);
+    console.log("Finished Kamada-Kawai layout");
 }
 
 
