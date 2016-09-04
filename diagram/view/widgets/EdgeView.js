@@ -38,10 +38,9 @@ EdgeView.prototype.draw = function(canvasId){
 
     ctx.beginPath();
 
-    ctx.moveTo(this.edge.getLeftNode().getX(), this.edge.getLeftNode().getY());
-    ctx.lineTo(this.edge.getRightNode().getX(), this.edge.getRightNode().getY());
+    ctx.moveTo(this.edge.getFromNode().getPoint().getX(), this.edge.getFromNode().getPoint().getY());
+    ctx.lineTo(this.edge.getToNode().getPoint().getX(), this.edge.getToNode().getPoint().getY());
 
     ctx.strokeStyle = this.color;
     ctx.stroke();
 }
-

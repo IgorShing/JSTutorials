@@ -1,11 +1,11 @@
 /**
  * Created by Admin on 08.08.2016.
  */
-function GraphView(data){
+function GraphView(graph){
     // Initialize parent's fields.
     View.apply(this, arguments);
 
-    this.data = data;
+    this.graph = graph;
 }
 
 //Create inheritance
@@ -15,30 +15,39 @@ GraphView.prototype = Object.create(View.prototype);
 GraphView.prototype.constructor = GraphView;
 
 GraphView.prototype.draw = function(canvasId){
-   drawEdges(this.data);
-   drawNodes(this.data);
+      this.drawEdges(canvasId);
+      this.drawNodes(canvasId);
 }
 
-function findNodeById(nodes, nodeId){
+/*function findNodeById(nodes, nodeId){
     for (var i = 0; i < nodes.length; i ++){
         if (nodes[i].id === nodeId){
             return nodes[i];
         }
     }
-}
+}*/
 
-function drawNodes(data){
+GraphView.prototype.drawNodes = function(canvasId){
     var nodeView;
+    var nodes = this.graph.getNodes();
 
-    for (var i = 0; i < Object.keys(data["nodes"]).length; i++){
-        var curNodeData = data["nodes"][i];
-        var node = new Node(curNodeData["id"], curNodeData["x"], curNodeData["y"], curNodeData["neighborsIds"]);
-        nodeView = new CircleView(node, 10, "red");
+    // for (var i = 0; i < Object.keys(nodes.length); i++){
+    for (var i = 0; i < nodes.length; i++){
+        nodeView = new CircleView(nodes[i], 10, "red");
         nodeView.draw(canvasId);
     }
 }
 
-function drawEdges(data){
+GraphView.prototype.drawEdges = function(canvasId){
+     var edges = this.graph.getEdges();
+     // Draw edges
+     for (var i = 0; i < edges.length; i++){
+         var edgeView = new EdgeView(edges[i], "blue");
+         edgeView.draw(canvasId);
+     }
+ }
+
+/*function drawEdges(data){
     for (var i = 0; i < Object.keys(data["nodes"]).length; i++){
         var curNodeData = data["nodes"][i];
         var node = new Node(curNodeData["id"], curNodeData["x"], curNodeData["y"], curNodeData["neighborsIds"]);
@@ -55,5 +64,5 @@ function drawEdges(data){
             edgeView.draw(canvasId);
         }
     }
-}
+}*/
 

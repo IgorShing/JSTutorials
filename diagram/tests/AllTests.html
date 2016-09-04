@@ -4,19 +4,53 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>QUnit Example</title>
-    <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.0.1.css">
+    <link rel="stylesheet" href="qunit_2_0_1.css">
+
+    <!--<script src="https://code.jquery.com/qunit/qunit-2.0.1.js"></script>-->
+    <script src="../../libs/qunit_2_0_1.js"></script>
+    <script src = "../../libs/math.js"></script>
+
+    <script src="../model/Node.js"></script>
+    <script src="../model/Edge.js"></script>
+    <script src="../model/Graph.js"></script>
+    <script src = "../model/Point2D.js"></script>
+    <script src = "../dao/GraphDataExtractor.js"></script>
+    <script src = "../model/RectangleArea.js"></script>
+    <script src = "../model/ScreenRectangleArea.js"></script>
+    <script src = "../model/CartesianRectangleArea.js"></script>
+
+
+    <script src = "../logic/CoordinateTransformer.js"></script>
+
+    <script src = "../logic/math/MathUtils.js"></script>
+    <script src = "../logic/math/CoordinateUtils.js"></script>
+
+    <script src = "../logic/layout/KamadaKawaiLayout.js"></script>
+    <script src = "../logic/layout/KamadaKawaiLayoutConfig.js"></script>
+    <script src = "../logic/layout/KamadaKawaiCalculator.js"></script>
+
 </head>
-<body>
-<div id="qunit"></div>
-<div id="qunit-fixture"></div>
-<!--<script src="https://code.jquery.com/qunit/qunit-2.0.1.js"></script>-->
-<script src="../../libs/qunit_2_0_1.js"></script>
+    <body>
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
 
-<script src = "../model/Point2D.js"></script>
-<script src = "../model/ScreenRectangleArea.js"></script>
-<script src = "../model/RectangleArea.js"></script>
-<script src = "../model/CartesianRectangleArea.js"></script>
+    <!-- Run tests -->
 
-<script src="tests.js"></script>
-</body>
+    <script src="model/Point2DTest.js"></script>
+    <script src="model/GraphTest.js"></script>
+    <script src="model/RectangleAreaTest.js"></script>
+    <script src="model/ScreenRectangleAreaTest.js"></script>
+    <script src="model/CartesianRectangleAreaTest.js"></script>
+
+    <script src="logic/CoordinateTransformerTest.js"></script>
+    <script src = "logic/math/MathUtilsTest.js"></script>
+    <script src = "logic/math/CoordinateUtilsTest.js"></script>
+
+    <script src = "logic/layout/KamadaKawaiLayoutTest.js"></script>
+    <script src = "logic/layout/KamadaKawaiLayoutConfigTest.js"></script>
+    <script src = "logic/layout/KamadaKawaiCalculatorTest.js"></script>
+
+    <script src = "dao/GraphDataExtractorTest.js"></script>
+
+    </body>
 </html>

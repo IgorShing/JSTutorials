@@ -11,7 +11,9 @@
 </head>
 <body>
 
-<!-- 	<div class="menu">
+	<div id = "menu-holder"></div>
+
+<!--<div class="menu">
 	  <span class="title"><%-title%></span>
 	  <ul>
 	    <% items.forEach(function(item) { %>
@@ -30,11 +32,12 @@
 	</script>
 
 	<script>
-  		var tmpl = _.template(document.getElementById('list-template').innerHTML);
+		var tmplHtml = document.getElementById('list-template').innerHTML.trim();
+  		tmpl = _.template(tmplHtml);
 
   		// ..а вот и результат
-  		var result = tmpl({count: 5});
-  		document.write( result );
+		document.getElementById('menu-holder').innerHTML = tmpl({count: 5});
+  		// document.write( result );
 	</script>
 
 </body>

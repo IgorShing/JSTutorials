@@ -1,18 +1,41 @@
 /**
  * Created by Admin on 08.08.2016.
  */
-function Edge(leftNode, rightNode){
-
-    this.leftNode = leftNode;
-    this.rightNode = rightNode;
-
+function Edge(fromNode, toNode, text, curviness){
+    this.fromNode = fromNode;
+    this.toNode = toNode;
+    this.text = text;
+    this.curviness = curviness;
 }
 
-Edge.prototype.getLeftNode = function(){
-    return this.leftNode;
+Edge.prototype.getFromNode = function(){
+    return this.fromNode;
 }
 
-Edge.prototype.getRightNode = function(){
-    return this.rightNode;
+Edge.prototype.setFromNode = function(fromNode){
+    this.fromNode = fromNode;
 }
 
+Edge.prototype.getToNode = function(){
+    return this.toNode;
+}
+
+Edge.prototype.setToNode = function(toNode){
+    this.toNode = toNode;
+}
+
+Edge.prototype.getText = function(){
+    return this.text;
+}
+
+Edge.prototype.setText = function(text){
+    this.text = text;
+}
+
+Edge.prototype.getCurviness = function(){
+    return this.curviness;
+}
+
+Edge.setCurviness = function(curviness){
+    this.curviness = curviness;
+}

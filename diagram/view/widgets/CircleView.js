@@ -25,7 +25,7 @@ function CircleView(node, radius, color){
         throw new Error("The node value is null");
     }
 
-    this.initialize(node.getX(), node.getY(), radius, color, node.getId());
+    this.initialize(node.getPoint().getX(), node.getPoint().getY(), radius, color, node.getText());
 }
 
 //Create inheritance
