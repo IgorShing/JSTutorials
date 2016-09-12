@@ -37,6 +37,7 @@
 	<script src = "logic/layout/GraphLayout.js"></script>
 	<script src = "logic/layout/RandomLayout.js"></script>
 	<script src = "logic/layout/CircleLayout.js"></script>
+	<script src = "logic/layout/KamadaKawaiCalculator.js"></script>
 	<script src = "logic/layout/KamadaKawaiLayoutConfig.js"></script>
 	<script src = "logic/layout/KamadaKawaiLayout.js"></script>
 
@@ -60,7 +61,7 @@
 
 					<div class = "controlPanel">
 						<div class="dropdown">
-							<button class="dropbtn">Load data</button>
+							<button class="dropbtn">Load...</button>
 							<div class="dropdown-content">
 								<a id= "link1" href="#">Data set 1</a>
 								<a id= "link2" href="#">Data set 2</a>
@@ -69,8 +70,16 @@
 						</div>
 					</div>
 
-					<p>Tab #1 content goes here!</p>
-					<p>Donec pulvinar neque sed semper lacinia. Curabitur lacinia ullamcorper nibh; quis imperdiet velit eleifend ac. Donec blandit mauris eget aliquet lacinia! Donec pulvinar massa interdum risus ornare mollis.</p>
+					<div class = "controlPanel">
+						<div class="dropdown">
+							<button class="dropbtn">Layout</button>
+							<div class="dropdown-content">
+								<a id= "linkCircleLayout" href="#">Circle Layout</a>
+								<a id= "linkRandomLayout" href="#">Random Layout</a>
+								<a id= "linkKamadaKawaiLayout" href="#">Kamada-Kawai Layout</a>
+							</div>
+						</div>
+					</div>
 				</div>
 
 				<div id="tab2" class="tab">
@@ -134,7 +143,18 @@
 		$("#link3").click(function() {
 			 mainController.buildDiagram(canvasId, DATA_SET_TYPE.DATA_SET_3);
 		});
-		
+
+		$("#link1").click(function() {
+			mainController.buildDiagram(canvasId, DATA_SET_TYPE.DATA_SET_1);
+		});
+
+		$("#link2").click(function() {
+			mainController.buildDiagram(canvasId, DATA_SET_TYPE.DATA_SET_2);
+		});
+
+		$("#link3").click(function() {
+			mainController.buildDiagram(canvasId, DATA_SET_TYPE.DATA_SET_3);
+		});
 		
 		// Get mouse position
 	      function writeMessage(canvas, message) {

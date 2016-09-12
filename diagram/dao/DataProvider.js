@@ -56,7 +56,7 @@ function getDataSet_2(){
 }
 
 function getDataSet_3(){
-	return '{"nodeKeyProperty": "id",'+
+/*	return '{"nodeKeyProperty": "id",'+
 		'"nodeDataArray": ['+
 		'{ "id": 0, "x": "25", "y": "20", "text": "A" },'+
 		'{ "id": 1, "x": "20", "y": "10", "text": "B" },'+
@@ -74,6 +74,47 @@ function getDataSet_3(){
 		'{ "from": 4, "to": 0, "text": "" },'+
 		'{ "from": 3, "to": 5, "text": "" }'+
 		']}';
+*/
+	return '{"nodeKeyProperty": "id",'+
+	 '"nodeDataArray": ['+
+	 '{ "id": 0, "x": "220", "y": "80", "text": "A" },'+
+	 '{ "id": 1, "x": "200", "y": "120", "text": "B" },'+
+	 '{ "id": 2, "x": "150", "y": "150", "text": "C" },'+
+	 '{ "id": 3, "x": "100", "y": "150", "text": "D" },'+
+	 '{ "id": 4, "x": "60", "y": "120","text": "E" },'+
+	 '{ "id": 5, "x": "40", "y": "80", "text": "F" },'+
+	 '{ "id": 6, "x": "80", "y": "40", "text": "G" },'+
+	 '{ "id": 7, "x": "100", "y": "20", "text": "H" },'+
+	 '{ "id": 8, "x": "150", "y": "20", "text": "I" },'+
+	 '{ "id": 9, "x": "200", "y": "40","text": "J" }'+
+	 '],'+
+	 '"linkDataArray": ['+
+	 '{ "from": 0, "to": 4, "text": "", "curviness": -20 },'+
+	 '{ "from": 0, "to": 5, "text": "", "curviness": 20 },'+
+	 '{ "from": 1, "to": 2, "text": "", "curviness": 20 },'+
+	 '{ "from": 1, "to": 0, "text": "", "curviness": -20 },'+
+	 '{ "from": 1, "to": 6, "text": "" },'+
+	 '{ "from": 2, "to": 3, "text": "" },'+
+	 '{ "from": 2, "to": 1, "text": "" },'+
+	 '{ "from": 2, "to": 8, "text": "" },'+
+	 '{ "from": 2, "to": 9, "text": "" },'+
+	 '{ "from": 3, "to": 2, "text": "" },'+
+	 '{ "from": 3, "to": 4, "text": "" },'+
+	 '{ "from": 3, "to": 7, "text": "" },'+
+	 '{ "from": 4, "to": 3, "text": "" },'+
+	 '{ "from": 4, "to": 0, "text": "" },'+
+	 '{ "from": 4, "to": 7, "text": "" },'+
+	 '{ "from": 5, "to": 0, "text": "" },'+
+	 '{ "from": 5, "to": 6, "text": "" },'+
+	 '{ "from": 6, "to": 5, "text": "" },'+
+	 '{ "from": 6, "to": 1, "text": "" },'+
+	 '{ "from": 7, "to": 3, "text": "" },'+
+	 '{ "from": 7, "to": 4, "text": "" },'+
+	 '{ "from": 8, "to": 2, "text": "" },'+
+	 '{ "from": 8, "to": 9, "text": "" },'+
+	 '{ "from": 9, "to": 8, "text": "" },'+
+	 '{ "from": 9, "to": 2, "text": "" }'+
+	 ']}';
 
 	/*return '{"nodeKeyProperty": "id",'+
 		'"nodeDataArray": ['+

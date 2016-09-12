@@ -20,7 +20,7 @@ GraphDataExtractor.getGraph = function(data){
     for (var i = 0; i < Object.keys(data["nodeDataArray"]).length; i++){
         var curNodeData = data["nodeDataArray"][i];
         var node = new Node(curNodeData["id"],
-                            new Point2D(curNodeData["x"], curNodeData["y"]),
+                            new Point2D(parseFloat(curNodeData["x"]), parseFloat(curNodeData["y"])),
                             curNodeData["text"]);
         nodes.push(node);
         // Fill the map

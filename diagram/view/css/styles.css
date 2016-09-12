@@ -13,11 +13,11 @@ canvas {
 }
 
 .controlPanel{
-    display: block;
+    display: inline;
 }
 
 .dropbtn {
-    background-color: #8eaf16;
+    background-color: #5d8baf;
     color: white;
     padding: 10px;
     font-size: 16px;
@@ -52,5 +52,5 @@ canvas {
 }
 
 .dropdown:hover .dropbtn {
-    background-color: #3e8e41;
+    background-color: #141b8e;
 }
