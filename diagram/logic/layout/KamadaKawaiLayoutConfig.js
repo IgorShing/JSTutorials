@@ -30,8 +30,8 @@ KamadaKawaiLayoutConfig.prototype.setDefaultConfiguration = function(){
     this.maxIterations = 10000;
     
     this.minEdgeNodesDistance = 1;
-    this.disconnectedFactor = 2;
-    this.lengthFactor = 0.9;
+    this.disconnectedFactor = 10;
+    this.lengthFactor = 0.7;
     this.springStiffness = 1;
 }
 

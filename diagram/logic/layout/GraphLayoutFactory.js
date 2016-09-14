@@ -10,16 +10,17 @@ var LAYOUT_TYPE = {
 	    KAMADA_KAWAI_LAYOUT: {value : "kamadaKawaiLayout"}
 }
 
-function GraphLayoutFactory(screenArea, points){
+function GraphLayoutFactory(screenArea, graph){
 	this.screenArea = screenArea;
-	this.points = points;
+	this.graph = graph;
 }
 
 GraphLayoutFactory.prototype.getLayout = function(layoutType){
     
 	switch (layoutType) {
     case LAYOUT_TYPE.CIRCLE_LAYOUT:
-    	return new CircleLayout(this.screenArea, this.points);
+    	// return new CircleLayout(this.screenArea, this.graph);
+    	return null;
     	
     case LAYOUT_TYPE.GRAVITY_LAYOUT:
     	
@@ -27,6 +28,6 @@ GraphLayoutFactory.prototype.getLayout = function(layoutType){
     	return null;
     	
     case LAYOUT_TYPE.KAMADA_KAWAI_LAYOUT:
-    	return new KamadaKawaiLayout(this.screenArea, this.points);
+    	return new KamadaKawaiLayout(this.screenArea, this.graph);
     }
 }

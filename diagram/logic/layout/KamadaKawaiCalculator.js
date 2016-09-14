@@ -1,4 +1,18 @@
-function KamadaKawaiCalculator(cartesianRectangleArea, points, configuration){
+function KamadaKawaiCalculator(cartesianRectangleArea, graph, configuration){
+	
+    this.nodes = graph.getNodes();
+    this.edges = graph.getEdges();
+    
+    this.nodeToIndex = new Map();
+    this.indexToNode = new Map();
+    
+    this.points = [];
+    for (var i = 0; i < nodes.length; i++){
+    	this.points.push(this.nodes[i].getPoint());
+    }
+    
+    this.initMaps();
+	
     if (configuration == null || configuration == undefined){
         // Use default configuration
         this.configuration = new KamadaKawaiLayoutConfig();
@@ -8,8 +22,6 @@ function KamadaKawaiCalculator(cartesianRectangleArea, points, configuration){
 
     // Область, которая содержит декартовы координаты
     this.cartesianRectangleArea = cartesianRectangleArea;
-
-    this.points = points;
 
     // Матрица расстояний
     //this.distanceMatrix = this.formDistanceMatrix(points);
@@ -21,40 +33,62 @@ function KamadaKawaiCalculator(cartesianRectangleArea, points, configuration){
     this.stiffnessMatrix = this.formStiffnessMatrix(this.points);
 }
 
+KamadaKawaiLayout.prototype.initMaps = function (){
+	for (var i = 0; i < this.nodes.length; i++){
+		this.nodeToIndex.push(i, this.nodes[i]);
+		this.indexToNode.push(this.nodes[i], i);
+	}
+
 /**
  * Формирует матрицу расстояний.
  */
-KamadaKawaiCalculator.prototype.formDistanceMatrix = function(points) {
+KamadaKawaiCalculator.prototype.formDistanceMatrix = function() {
 
-    var distanceMatrix = math.zeros(points.length, points.length);
+    var distanceMatrix = math.zeros(this.points.length, this.points.length);
     // Минимальное расстояние между узлами (в некоторых единицах измерения), которые не соединены ребром
     var minNodesDistance = this.calculateMinNodesDistance();
+    var minEdgeNodesDistance = this.configuration.getMinEdgeNodesDistance();
+    
 
     // Заполняем матрицу одинаковыми расстояниями
-    for (var i = 0; i <= points.length - 1; i++) {
-        for (var j = i + 1; j < points.length; j++) {
+    for (var i = 0; i <= this.points.length - 1; i++) {
+        for (var j = i + 1; j < this.points.length; j++) {
             distanceMatrix.set([i, j], minNodesDistance);
             distanceMatrix.set([j, i], minNodesDistance);
         }
         distanceMatrix.set([i, i], 0.0);
     }
+    
+    // Set the distance between nodes connected by an edge
+    for (var i = 0; i < this.edges.length; i++){
+    	
+    	var firstNode = this.edges[i].fromNode();
+    	var secondNode = this.edges[i].toNode();
+    	
+    	var firstIndex = this.indexToNode.get(firstNode);
+    	var secondIndex = this.indexToNode.get(secondNode);
+    	
+    	distanceMatrix.set([firstIndex, secondIndex], minEdgeNodesDistance);
+    	distanceMatrix.set([secondIndex, firstIndex], minEdgeNodesDistance);
+    }
+        
     return distanceMatrix;
 }
 
 /**
  * Формирует матрицу желаемых расстояний между узлами.
  */
-KamadaKawaiCalculator.prototype.formLengthMatrix = function(points) {
+KamadaKawaiCalculator.prototype.formLengthMatrix = function() {
     var desiredEdgeLength = this.calculateDesiredEdgeLength();
 
     console.log("The desired length: " + desiredEdgeLength);
     
-    var lengthMatrix = math.zeros(points.length, points.length);
-    var distanceMatrix = this.formDistanceMatrix(points);
+    var lengthMatrix = math.zeros(this.points.length, this.points.length);
+    var distanceMatrix = this.formDistanceMatrix(this.points);
 
     // Заполняем матрицу одинаковыми расстояниями
-    for (var i = 0; i <= points.length - 1; i++) {
-        for (var j = i + 1; j < points.length; j++) {
+    for (var i = 0; i <= this.points.length - 1; i++) {
+        for (var j = i + 1; j < this.points.length; j++) {
             var value = desiredEdgeLength * distanceMatrix.get([i, j]);
             lengthMatrix.set([i, j], value);
             lengthMatrix.set([j, i], value);
@@ -69,14 +103,14 @@ KamadaKawaiCalculator.prototype.formLengthMatrix = function(points) {
 /**
  * Формирует матрицу "коэффициентов жесткости".
  */
-KamadaKawaiCalculator.prototype.formStiffnessMatrix = function(points) {
+KamadaKawaiCalculator.prototype.formStiffnessMatrix = function() {
 
-    var stiffnessMatrix = math.zeros(points.length, points.length);
-    var distanceMatrix = this.formDistanceMatrix(points);
+    var stiffnessMatrix = math.zeros(this.points.length, this.points.length);
+    var distanceMatrix = this.formDistanceMatrix(this.points);
     var springStiffness = this.configuration.getSpringStiffness();
 
-    for (var i = 0; i <= points.length - 1; i++) {
-        for (var j = i + 1; j < points.length; j++) {
+    for (var i = 0; i <= this.points.length - 1; i++) {
+        for (var j = i + 1; j < this.points.length; j++) {
             var value = springStiffness / (distanceMatrix.get([i, j]) * distanceMatrix.get([i, j]));
 
             stiffnessMatrix.set([i, j], value);
@@ -110,14 +144,14 @@ KamadaKawaiCalculator.prototype.graphDiameter = function(){
 /**
  * Вычисление градиента функции "потенциальной энергии" для заданного узла m.
  */
-KamadaKawaiCalculator.prototype.potentialEnergyGradient = function(m, points) {
+KamadaKawaiCalculator.prototype.potentialEnergyGradient = function(m) {
 
-    if (!(m >= 0 && m < points.length)){
+    if (!(m >= 0 && m < this.points.length)){
         throw new Error("Error! Not valid parameters for Potential Energy Gradient");
     }
 
-    var xPartial = this.partialDerivativeX(m, points);
-    var yPartial = this.partialDerivativeY(m, points);
+    var xPartial = this.partialDerivativeX(m, this.points);
+    var yPartial = this.partialDerivativeY(m, this.points);
     return Math.sqrt(xPartial * xPartial + yPartial * yPartial);
 }
 
@@ -125,11 +159,11 @@ KamadaKawaiCalculator.prototype.potentialEnergyGradient = function(m, points) {
  * Находит индекс в массиве координат узлов соответствующий узлу с максимальным градиентом потенциальной энергии.
  * Returns index and the corresponding value.
  */
-KamadaKawaiCalculator.prototype.findIndexMaxPotentialEnergyGradient = function(points) {
+KamadaKawaiCalculator.prototype.findIndexMaxPotentialEnergyGradient = function() {
     var gradients = [];
 
-    for (var i = 0; i < points.length; i++) {
-        gradients.push(this.potentialEnergyGradient(i, points));
+    for (var i = 0; i < this.points.length; i++) {
+        gradients.push(this.potentialEnergyGradient(i));
     }
 
     var indexOfMaxValue = MathUtils.getIndexOfMaxValue(gradients);
@@ -166,8 +200,8 @@ KamadaKawaiCalculator.prototype.solveEquations = function (A, B, C, D, E) {
  * @param m - index of a point for witch partial derivatives are calculated.
  * @param points
  */
-KamadaKawaiCalculator.prototype.partialDerivativeX = function(m, points){
-    if (!(m >= 0 && m < points.length)){
+KamadaKawaiCalculator.prototype.partialDerivativeX = function(m){
+    if (!(m >= 0 && m < this.points.length)){
         throw new Error("Error! Not valid parameters for Partial Derivative X");
     }
 
@@ -177,10 +211,10 @@ KamadaKawaiCalculator.prototype.partialDerivativeX = function(m, points){
     var pointA = null;
     var pointB = null;
 
-    for (var i = 0; i < points.length; i++) {
+    for (var i = 0; i < this.points.length; i++) {
         if (i != m) {
-            pointA = points[i];
-            pointB = points[m];
+            pointA = this.points[i];
+            pointB = this.points[m];
             dist = CoordinateUtils.distance(pointA, pointB);
             deltaX = (pointB.getX() - pointA.getX());
             xPartial += this.stiffnessMatrix.get([m, i]) * deltaX * (1.0 - this.lengthMatrix.get([m, i]) / dist);
@@ -189,7 +223,7 @@ KamadaKawaiCalculator.prototype.partialDerivativeX = function(m, points){
     return xPartial;
 }
 
-KamadaKawaiCalculator.prototype.partialDerivativeY = function(m, points){
+KamadaKawaiCalculator.prototype.partialDerivativeY = function(m){
     if (!(m >= 0 && m < points.length)){
         throw new Error("Error! Not valid parameters for Partial Derivative Y");
     }
@@ -200,10 +234,10 @@ KamadaKawaiCalculator.prototype.partialDerivativeY = function(m, points){
     var pointA = null;
     var pointB = null;
 
-    for (var i = 0; i < points.length; i++) {
+    for (var i = 0; i < this.points.length; i++) {
         if (i != m) {
-            pointA = points[i];
-            pointB = points[m];
+            pointA = this.points[i];
+            pointB = this.points[m];
             dist = CoordinateUtils.distance(pointA, pointB);
             deltaY = (pointB.getY() - pointA.getY());
             yPartial += this.stiffnessMatrix.get([m, i]) * deltaY * (1.0 - this.lengthMatrix.get([m, i]) / dist);
@@ -212,9 +246,9 @@ KamadaKawaiCalculator.prototype.partialDerivativeY = function(m, points){
     return yPartial;
 }
 
-KamadaKawaiCalculator.prototype.partialDerivativeXX = function(m, points){
+KamadaKawaiCalculator.prototype.partialDerivativeXX = function(m){
 
-    if (!(m >= 0 && m < points.length)){
+    if (!(m >= 0 && m < this.points.length)){
         throw new Error("Error! Not valid parameters for Partial Derivative XX");
     }
 
@@ -228,8 +262,8 @@ KamadaKawaiCalculator.prototype.partialDerivativeXX = function(m, points){
 
     for (var i = 0; i < points.length; i++) {
         if (i != m) {
-            pointA = points[i];
-            pointB = points[m];
+            pointA = this.points[i];
+            pointB = this.points[m];
             dist = CoordinateUtils.distance(pointA, pointB);
             dist3 = dist * dist * dist;
             deltaY = (pointB.getY() - pointA.getY());
@@ -240,7 +274,7 @@ KamadaKawaiCalculator.prototype.partialDerivativeXX = function(m, points){
     return xxPartial;
 }
 
-KamadaKawaiCalculator.prototype.partialDerivativeXY = function(m, points){
+KamadaKawaiCalculator.prototype.partialDerivativeXY = function(m){
     if (!(m >= 0 && m < points.length)){
         throw new Error("Error! Not valid parameters for Partial Derivative XY");
     }
@@ -254,10 +288,10 @@ KamadaKawaiCalculator.prototype.partialDerivativeXY = function(m, points){
     var pointA = null;
     var pointB = null;
 
-    for (var i = 0; i < points.length; i++) {
+    for (var i = 0; i < this.points.length; i++) {
         if (i != m) {
-            pointA = points[i];
-            pointB = points[m];
+            pointA = this.points[i];
+            pointB = this.points[m];
             dist = CoordinateUtils.distance(pointA, pointB);
             dist3 = dist * dist * dist;
             deltaX = (pointB.getX() - pointA.getX());
@@ -269,13 +303,13 @@ KamadaKawaiCalculator.prototype.partialDerivativeXY = function(m, points){
     return xyPartial;
 }
 
-KamadaKawaiCalculator.prototype.partialDerivativeYX = function(m, points){
+KamadaKawaiCalculator.prototype.partialDerivativeYX = function(m){
     // partialDerivativeXY = partialDerivativeYX
     return this.partialDerivativeXY();
 }
 
-KamadaKawaiCalculator.prototype.partialDerivativeYY = function(m, points){
-    if (!(m >= 0 && m < points.length)){
+KamadaKawaiCalculator.prototype.partialDerivativeYY = function(m){
+    if (!(m >= 0 && m < this.points.length)){
         throw new Error("Error! Not valid parameters for Partial Derivative YY");
     }
 
@@ -287,10 +321,10 @@ KamadaKawaiCalculator.prototype.partialDerivativeYY = function(m, points){
     var pointA = null;
     var pointB = null;
 
-    for (var i = 0; i < points.length; i++) {
+    for (var i = 0; i < this.points.length; i++) {
         if (i != m) {
-            pointA = points[i];
-            pointB = points[m];
+            pointA = this.points[i];
+            pointB = this.points[m];
             dist = CoordinateUtils.distance(pointA, pointB);
             dist3 = dist * dist * dist;
             deltaX = (pointB.getX() - pointA.getX());
@@ -311,22 +345,22 @@ KamadaKawaiCalculator.prototype.partialDerivativeYY = function(m, points){
  * @param m
  * @param points
  */
-KamadaKawaiCalculator.prototype.pointDisplacement = function(m, points) {
+KamadaKawaiCalculator.prototype.pointDisplacement = function(m) {
 
     // Прибавка к координатам delta[0] = dx, delta[1] = dy
-    var xPartial = this.partialDerivativeX(m, points);
-    var yPartial = this.partialDerivativeY(m, points);
-    var xxPartial = this.partialDerivativeXX(m, points);
-    var xyPartial = this.partialDerivativeXY(m, points);
-    var yyPartial = this.partialDerivativeYY(m, points);
+    var xPartial = this.partialDerivativeX(m);
+    var yPartial = this.partialDerivativeY(m);
+    var xxPartial = this.partialDerivativeXX(m);
+    var xyPartial = this.partialDerivativeXY(m);
+    var yyPartial = this.partialDerivativeYY(m);
 
     return this.solveEquations(xPartial, yPartial, xxPartial, xyPartial, yyPartial);
 }
 
-KamadaKawaiCalculator.prototype.movePoint = function (indexForMaxDeltaM, points) {
+KamadaKawaiCalculator.prototype.movePoint = function (indexForMaxDeltaM) {
     var delta;
     var prevEnergyPotential = 0;
-    var curEnergyPotential = this.potentialEnergyGradient(indexForMaxDeltaM, points);
+    var curEnergyPotential = this.potentialEnergyGradient(indexForMaxDeltaM);
     var deltaPotential = Math.abs(curEnergyPotential - prevEnergyPotential);
 
     var iterations = 0;
@@ -334,7 +368,7 @@ KamadaKawaiCalculator.prototype.movePoint = function (indexForMaxDeltaM, points)
     var EPSILON = this.configuration.getAcuracy();
 
     while (deltaPotential > EPSILON || iterations > MAX_ITERATIONS) {
-        delta = this.pointDisplacement(indexForMaxDeltaM, points);
+        delta = this.pointDisplacement(indexForMaxDeltaM);
 
         var newX = points[indexForMaxDeltaM].getX() + delta[0];
         var newY = points[indexForMaxDeltaM].getY() + delta[1];
@@ -343,7 +377,7 @@ KamadaKawaiCalculator.prototype.movePoint = function (indexForMaxDeltaM, points)
         points[indexForMaxDeltaM].setY(newY);
 
         prevEnergyPotential = curEnergyPotential;
-        curEnergyPotential = this.potentialEnergyGradient(indexForMaxDeltaM, points);
+        curEnergyPotential = this.potentialEnergyGradient(indexForMaxDeltaM);
         deltaPotential = Math.abs(curEnergyPotential - prevEnergyPotential);
         iterations++;
     }
@@ -356,25 +390,23 @@ KamadaKawaiCalculator.prototype.calculateMinNodesDistance = function(){
     return disconnectedFactor * minEdgeNodesDistance;
 }
 
-KamadaKawaiCalculator.prototype.calculateDesiredEdgeLength = function(){
+// This is a kind of scale but not
+KamadaKawaiCalculator.prototype.calculateScale = function(){
     var length_factor = this.configuration.getLengthFactor();
 
     return Math.min(this.cartesianRectangleArea.getWidth(), this.cartesianRectangleArea.getHeight()) /
            this.graphDiameter()* length_factor;
 }
 
-KamadaKawaiCalculator.prototype.calculatePotentialEnergy = function(points){
+KamadaKawaiCalculator.prototype.calculatePotentialEnergy = function(){
     var result = 0.0;
     // Вычисляем расстояния между всеми парами узлов и возвращаем максимальное расстояние.
-    for (var i = 0; i < points.length - 1; i++) {
-        for (var j = i + 1; j < points.length; j++) {
-            var dist = CoordinateUtils.distance(points[i], points[j]);
+    for (var i = 0; i < this.points.length - 1; i++) {
+        for (var j = i + 1; j < this.points.length; j++) {
+            var dist = CoordinateUtils.distance(this.points[i], this.points[j]);
             var factor = dist - this.lengthMatrix.get([i, j]);
             result += this.stiffnessMatrix.get([i, j]) * factor * factor;
         }
     }
     return 0.5 * result;
 }
-
-
-

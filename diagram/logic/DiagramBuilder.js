@@ -41,25 +41,25 @@ DiagramBuilder.prototype.buildDiagram = function(canvasId, layoutType){
     var graph = GraphDataExtractor.getGraph(this.data);
     var graphView = new GraphView(graph);
 
+    var canvas = document.getElementById(canvasId);
+    var screenArea = new ScreenRectangleArea(new Point2D(this.marginX, this.marginY), 
+                                             canvas.width - 2 * this.marginX, canvas.height - 2 * this.marginY);
+
+    // Layout nodes
+    var layoutFactory = new GraphLayoutFactory(screenArea, graph);
+    var layout = layoutFactory.getLayout(layoutType);
+    layout.apply();
+
+    
     // Transform nodes coordinates to a points array
     var nodes = graph.getNodes();
     var points = [];
     for (var i = 0; i < nodes.length; i++){
         points.push(nodes[i].getPoint());
     }
-
-    var canvas = document.getElementById(canvasId);
-    var screenArea = new ScreenRectangleArea(new Point2D(this.marginX, this.marginY), 
-                                             canvas.width - 2 * this.marginX, canvas.height - 2 * this.marginY);
-
-    // Layout nodes
-    var layoutFactory = new GraphLayoutFactory(screenArea, points);
-    var layout = layoutFactory.getLayout(layoutType);
-    layout.apply();
-
+    
+    
     CoordinateTransformer.transformToScreenCoordinates(screenArea, points);
-
-    console.log(points);
     
     graphView.draw(canvasId);
 }
