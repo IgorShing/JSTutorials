@@ -29,9 +29,6 @@ KamadaKawaiLayout.prototype.apply = function (){
     var iterations = 0;
 
     // Задаем начальное расположение узлов
-    // randomizeLayout();
-    // circleLayout(10);
-
     var circleLayout = new CircleLayout(this.cartesianRectangleArea, this.points);
     circleLayout.apply();
 
@@ -47,10 +44,11 @@ KamadaKawaiLayout.prototype.apply = function (){
     var prevMaxDelta = 0;
     var curMaxDelta = res[1];
     var deltaMaxDelta = Math.abs(curMaxDelta - prevMaxDelta);
-
+    
+    console.log('Initial potential energy: ' + calculator.calculatePotentialEnergy(this.points));
+    
     while (deltaMaxDelta > EPSILON && iterations < MAX_ITERATIONS) {
         calculator.movePoint(indexForMaxDeltaM, this.points);
-
         res = calculator.findIndexMaxPotentialEnergyGradient(this.points);
 
         prevMaxDelta = curMaxDelta;
@@ -58,11 +56,15 @@ KamadaKawaiLayout.prototype.apply = function (){
         curMaxDelta = res[1];
 
         deltaMaxDelta = Math.abs(curMaxDelta - prevMaxDelta);
-
+        
+        console.log('deltaMaxDelta: ' + deltaMaxDelta);
         console.log(iterations++ + ', Potential energy: ' + calculator.calculatePotentialEnergy(this.points));
     }
-  //   adjustForGravity();
-  //   scaleCoordinates(width, height);
+    
+    // TODO
+    // Adjust for gravity center
+    // .....
+    
     console.log("Finished Kamada-Kawai layout");
 }
 

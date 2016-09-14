@@ -47,6 +47,8 @@ KamadaKawaiCalculator.prototype.formDistanceMatrix = function(points) {
 KamadaKawaiCalculator.prototype.formLengthMatrix = function(points) {
     var desiredEdgeLength = this.calculateDesiredEdgeLength();
 
+    console.log("The desired length: " + desiredEdgeLength);
+    
     var lengthMatrix = math.zeros(points.length, points.length);
     var distanceMatrix = this.formDistanceMatrix(points);
 
@@ -59,6 +61,8 @@ KamadaKawaiCalculator.prototype.formLengthMatrix = function(points) {
         }
         lengthMatrix.set([i, i], 0.0);
     }
+    
+    console.log("lengthMatrix: " + lengthMatrix);
     return lengthMatrix;
 }
 
@@ -78,7 +82,8 @@ KamadaKawaiCalculator.prototype.formStiffnessMatrix = function(points) {
             stiffnessMatrix.set([i, j], value);
             stiffnessMatrix.set([j, i], value);
         }
-        stiffnessMatrix.set([i, i], Number.POSITIVE_INFINITY); // Бесконечность
+       // stiffnessMatrix.set([i, i], Number.POSITIVE_INFINITY); // Бесконечность
+        stiffnessMatrix.set([i, i], 0); // Бесконечность
     }
     return stiffnessMatrix;
 }

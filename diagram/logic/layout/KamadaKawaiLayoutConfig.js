@@ -26,12 +26,13 @@ function KamadaKawaiLayoutConfig(){
 }
 
 KamadaKawaiLayoutConfig.prototype.setDefaultConfiguration = function(){
-    this.acuracy = 1e-5;
+    this.acuracy = 1e-8;
     this.maxIterations = 10000;
-    this.minEdgeNodesDistance = 10;
+    
+    this.minEdgeNodesDistance = 1;
     this.disconnectedFactor = 2;
-    this.lengthFactor = 0.7;
-    this.springStiffness = 10;
+    this.lengthFactor = 0.9;
+    this.springStiffness = 1;
 }
 
 // Acuracy

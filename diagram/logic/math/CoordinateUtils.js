@@ -3,12 +3,8 @@ function CoordinateUtils(){
 }
 
 CoordinateUtils.distance = function(pointA, pointB){
+    var deltaX = pointB.getX() - pointA.getX();
+    var deltaY = pointB.getY() - pointA.getY();
 
-    var xA = pointA.getX();
-    var yA = pointA.getY();
-
-    var xB = pointB.getX();
-    var yB = pointB.getY();
-
-    return Math.sqrt((xB - xA)*(xB - xA) + (yB - yA)*(yB - yA));
+    return Math.sqrt(deltaX * deltaX + deltaY * deltaY);
 }

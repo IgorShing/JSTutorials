@@ -40,6 +40,7 @@
 	<script src = "logic/layout/KamadaKawaiCalculator.js"></script>
 	<script src = "logic/layout/KamadaKawaiLayoutConfig.js"></script>
 	<script src = "logic/layout/KamadaKawaiLayout.js"></script>
+	<script src = "logic/layout/GraphLayoutFactory.js"></script>
 
 </head>
 
@@ -63,9 +64,11 @@
 						<div class="dropdown">
 							<button class="dropbtn">Load...</button>
 							<div class="dropdown-content">
-								<a id= "link1" href="#">Data set 1</a>
-								<a id= "link2" href="#">Data set 2</a>
-								<a id= "link3" href="#">Data set 3</a>
+								<a id= "loadDataSet1" href="#">Data set 1</a>
+								<a id= "loadDataSet2" href="#">Data set 2</a>
+								<a id= "loadDataSet3" href="#">Data set 3</a>
+								<a id= "loadDataSet4" href="#">Data set 4</a>
+								<a id= "loadDataSet5" href="#">Data set 5</a>
 							</div>
 						</div>
 					</div>
@@ -99,8 +102,6 @@
 			</div>
 		</div>
 
-		<!-- ------------------------       -->
-
 		<script>
 			jQuery(document).ready(function() {
 				jQuery('.tabs .tab-links a').on('click', function(e)  {
@@ -116,87 +117,16 @@
 				});
 			});
 		</script>
-
-
 		
 		<div class = "diagram">
-			<canvas id="myCanvas" width = "800px" height = "600px"></canvas>
+			<canvas id="myCanvas" width = "1000px" height = "1000px"></canvas>
 		</div>
 
 	</div>
-	<script>
 	
+	<script>
 		var mainController = new MainController();
-		var canvasId = "myCanvas";
-		var dataSetType = DATA_SET_TYPE.DATA_SET_1;
-	
-		//mainController.buildDiagram(canvasId, dataSetType);
-	
-		$("#link1").click(function() {
-			mainController.buildDiagram(canvasId, DATA_SET_TYPE.DATA_SET_1);
-		});
-	
-		$("#link2").click(function() {
-			mainController.buildDiagram(canvasId, DATA_SET_TYPE.DATA_SET_2);
-		});
-	
-		$("#link3").click(function() {
-			 mainController.buildDiagram(canvasId, DATA_SET_TYPE.DATA_SET_3);
-		});
-
-		$("#link1").click(function() {
-			mainController.buildDiagram(canvasId, DATA_SET_TYPE.DATA_SET_1);
-		});
-
-		$("#link2").click(function() {
-			mainController.buildDiagram(canvasId, DATA_SET_TYPE.DATA_SET_2);
-		});
-
-		$("#link3").click(function() {
-			mainController.buildDiagram(canvasId, DATA_SET_TYPE.DATA_SET_3);
-		});
-		
-		// Get mouse position
-	      function writeMessage(canvas, message) {
-
-	      	  var posX = 10;
-			  var posY = 700;
-
-	          var context = canvas.getContext('2d');
-	          context.clearRect(posX, posY, canvas.width, 50);
-	          context.font = '12pt Calibri';
-	          context.fillStyle = 'black';
-	          context.fillText(message, posX, posY);
-	        }
-	      
-	      function getMousePos(canvas, evt) {
-	          var rect = canvas.getBoundingClientRect();
-	          return {
-	            x: evt.clientX - rect.left,
-	            y: evt.clientY - rect.top
-	          };
-	        }
-
-	        var canvas = document.getElementById('myCanvas');
-	        var context = canvas.getContext('2d');
-
-	        canvas.addEventListener('mousemove', function(evt) {
-	          var mousePos = getMousePos(canvas, evt);
-	          var message = 'Mouse position: x = ' + mousePos.x + ', y = ' + mousePos.y + '';
-	          
-	          writeMessage(canvas, message);
-	        }, false);
-	        
-	</script>
-
-	<script>
-				
-		function handler() {
-		  alert('Create a circle!');
-		}
-		
-		myCanvas.addEventListener("click", handler) // Назначение обработчика
-	
+		mainController.formClickHandlers();
 	</script>
 
 </body>
