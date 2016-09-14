@@ -44,6 +44,12 @@ MainController.prototype.formClickHandlers = function(canvasId){
 		self.displayCurrentData(canvasId);
 	});
 	
+	$("#loadDataSet6").click(function() {
+		var canvasId = "myCanvas";
+		self.currentDataSet = DATA_SET_TYPE.DATA_SET_6;
+		self.displayCurrentData(canvasId);
+	});
+	
 	// Layout handlers
 	$("#linkCircleLayout").click(function() {
 		var canvasId = "myCanvas";
